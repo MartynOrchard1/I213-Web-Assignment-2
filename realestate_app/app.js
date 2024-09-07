@@ -18,7 +18,9 @@ db.connect((err) => {
 });
 
 // Setup handlebars
-app.engine('handlebars', exphbs());
+const hbs = exphbs.create({});
+app.engine('handlebars', hbs.engine);
+
 app.set('view engine', 'handlebars');
 
 // Stat Folder
