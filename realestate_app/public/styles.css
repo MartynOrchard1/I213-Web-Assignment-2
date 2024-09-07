@@ -1,0 +1,4 @@
+/* These issues should fix itself  */
+@tailwind base; 
+@tailwind components;
+@tailwind utilities;
