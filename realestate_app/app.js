@@ -1,15 +1,15 @@
 const express = require('express');
 const exphbs = require('express-handlebars');
-const mysql = require('mysql');
+const mysql = require('mysql2');
 const app = express();
 const port = 3000;
 
 // Connect To DB
 const db = mysql.createConnection({
-    host: 'localhost',
+    host: '127.0.0.1',
     user: 'root',
-    password: '',
-    database: 'realestate'
+    password: 'root',
+    database: 'test'
 });
 
 db.connect((err) => {
