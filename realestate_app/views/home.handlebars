@@ -1,0 +1,42 @@
+{{!-- views/home.handlebars --}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../public/output.css">
+    <title>Home</title>
+</head>
+<body>
+    <header>
+        <nav class="flex justify-between p-4 bg-blue-500 text-white">
+            <a href="/">Home</a>
+            <a href="/login" class="btn btn-primary">login</a>
+        </nav>
+    </header>
+
+  <section class="hero p-8 bg-gray-100">
+    <h1 class="text-4xl font-bold">Find Your Dream Property</h1>
+    <p class="mt-2 text-lg">Explore the best properties available in your suburb</p>
+    <button class="mt-4 bg-blue-500 text-white py-2 px-4">Learn more about us</button>
+  </section>
+
+        <aside class="sidebar p-4">
+            <h2 class="text-2xl font-bold">Locations</h2>
+        <ul>
+            {{#each suburbs}}
+            <li>{{this.suburb}}</li>
+            {{/each}}
+        </ul>
+        </aside>
+
+        <main class="property-grid grid grid-cols-3 gap-4 p-4">
+            {{!-- Fetch and display properties go here --}} 
+        </main>
+
+        <footer class="p-4 bg-blue-500 text-white">&copy; 2024 | Real Estate Listings | Martyn James Orchard | 21356032</footer>
+
+
+
+</body>
+</html>

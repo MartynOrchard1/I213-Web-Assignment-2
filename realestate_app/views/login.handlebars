@@ -1,0 +1,46 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../public/output.css" />
+    <title>Login</title>
+  </head>
+  <body>
+    <header>
+      <nav class="flex justify-between p-4 bg-blue-500 text-white">
+        <a href="/">Home</a>
+      </nav>
+    </header>
+
+    <main
+      class="login-form max-w-lg mx-auto mt-10 p-4 border rounded shadow-lg"
+    >
+      <h2 class="text-2xl font-bold mb-4">Login</h2>
+      <form action="/login" method="POST">
+        <div class="mb-4">
+          <label for="username" class="block">Username:</label>
+          <br>
+          <input
+            type="text"
+            id="username"
+            class="w-full p-2 border"
+            placeholder="Type here..."
+          />
+        </div>
+
+        <div class="mb-4">
+          <label for="password" class="block">Password:</label>
+          <br>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            class="w-full p-2 border"
+          />
+        </div>
+        <br>
+        <button type="submit" class="w-full bg-blue-500 text-white py-2">Login</button>
+      </form>
+    </main>
+  </body>
+</html>
