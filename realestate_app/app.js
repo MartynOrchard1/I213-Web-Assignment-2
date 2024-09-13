@@ -1,7 +1,7 @@
 const express = require('express');
 const exphbs = require('express-handlebars');
 const path = require('path');
-const sequelize = require('./config/db'); // Sequelize instance
+const sequelize = require('./db'); // Sequelize instance
 const app = express();
 const port = 3000;
 
