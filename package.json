@@ -1,5 +1,7 @@
 {
   "dependencies": {
-    "node": "^22.8.0"
+    "mysql2": "^3.11.2",
+    "node": "^22.8.0",
+    "sequelize": "^6.37.3"
   }
 }
