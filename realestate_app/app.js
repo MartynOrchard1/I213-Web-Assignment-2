@@ -1,38 +1,34 @@
 const express = require('express');
 const exphbs = require('express-handlebars');
-const mysql = require('mysql2');
+const path = require('path');
+const sequelize = require('./config/db'); // Sequelize instance
 const app = express();
 const port = 3000;
 
-// Connect To DB
-const db = mysql.createConnection({
-    host: '127.0.0.1',
-    user: 'root',
-    password: 'root',
-    database: 'test'
-});
-
-db.connect((err) => {
-    if (err) throw err;
-    console.log('Connected to MYSQL');
-});
-
-// Setup handlebars
-const hbs = exphbs.create({});
-app.engine('handlebars', hbs.engine);
-
-app.set('view engine', 'handlebars');
-
-// Stat Folder
-app.use(express.static('public'));
-
-// Parse To Body
+// Middleware for parsing request bodies (e.g., form submissions)
 app.use(express.urlencoded({ extended: true }));
 
-// Setup The Routes
-app.use('/', require('./routes/index.js'));
+// Serve static files (e.g., CSS, images)
+app.use(express.static(path.join(__dirname, 'public')));
 
-// PORT 
+// Set up Handlebars as the template engine
+const hbs = exphbs.create({});
+app.engine('handlebars', hbs.engine);
+app.set('view engine', 'handlebars');
+
+// Sync Sequelize models with the database
+sequelize.sync()
+  .then(() => {
+    console.log('Database & tables synced successfully!');
+  })
+  .catch(err => {
+    console.error('Error syncing database:', err);
+  });
+
+// Routes
+app.use('/', require('./routes/index')); // Main routes file
+
+// Start the Express server
 app.listen(port, () => {
-    console.log(`Server running on port ${port}`);
+  console.log(`Server is running on port ${port}`);
 });

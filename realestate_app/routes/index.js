@@ -1,68 +1,55 @@
 const express = require('express');
 const router = express.Router();
-const db = require('../db'); // Assuming you have a db.js file that exports the MySQL connection
+const Property = require('../models/property'); // Import the Property model
+const Suburb = require('../models/suburb');     // Import the Suburb model
 
 // Home Page
-router.get('/', (req, res) => {
-  // Fetch 18 distinct suburbs from the database
-  const sql = 'SELECT DISTINCT suburb FROM properties LIMIT 18';
-  db.query(sql, (err, suburbs) => {
-    if (err) throw err;
-
-    // Fetch 21 properties to display on the home page
-    const propertySql = 'SELECT * FROM properties LIMIT 21';
-    db.query(propertySql, (err, properties) => {
-      if (err) throw err;
-
-      res.render('home', { suburbs, properties });
+router.get('/', async (req, res) => {
+  try {
+    // Fetch 18 distinct suburbs
+    const suburbs = await Suburb.findAll({
+      attributes: ['name'], // Adjust the column name if necessary
+      limit: 18
     });
-  });
-});
 
-// Login Page (GET request)
-router.get('/login', (req, res) => {
-  res.render('login');
-});
+    // Fetch 21 properties
+    const properties = await Property.findAll({
+      limit: 21
+    });
 
-// Handle login form submission (POST request)
-router.post('/login', (req, res) => {
-  const { username, password } = req.body;
-
-  // Hardcoded credentials check (you can replace this with a real authentication system)
-  if (username === 'admin' && password === 'password') {
-    res.redirect('/dashboard');
-  } else {
-    res.redirect('/login?error=Invalid credentials');
+    res.render('home', { suburbs, properties });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Server Error');
   }
-});
-
-// Dashboard Page (GET request)
-router.get('/dashboard', (req, res) => {
-  res.render('dashboard');
 });
 
 // Fetch properties based on selected suburb
-router.get('/properties', (req, res) => {
-  const suburb = req.query.suburb; // Get suburb from query parameter
+router.get('/properties', async (req, res) => {
+  const { suburb } = req.query;
 
   if (!suburb) {
-    return res.redirect('/'); // Redirect to home if no suburb is selected
+    return res.redirect('/');
   }
 
-  // Fetch properties for the selected suburb
-  const sql = 'SELECT * FROM properties WHERE suburb = ? LIMIT 21';
-  db.query(sql, [suburb], (err, properties) => {
-    if (err) throw err;
-
-    // Fetch the same list of 18 distinct suburbs to display in the sidebar
-    const suburbSql = 'SELECT DISTINCT suburb FROM properties LIMIT 18';
-    db.query(suburbSql, (err, suburbs) => {
-      if (err) throw err;
-
-      // Render the home page with filtered properties and suburb list
-      res.render('home', { suburbs, properties, selectedSuburb: suburb });
+  try {
+    // Fetch properties for the selected suburb
+    const properties = await Property.findAll({
+      where: { suburb },
+      limit: 21
     });
-  });
+
+    // Fetch all suburbs to maintain the sidebar
+    const suburbs = await Suburb.findAll({
+      attributes: ['name'],
+      limit: 18
+    });
+
+    res.render('home', { suburbs, properties, selectedSuburb: suburb });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Server Error');
+  }
 });
 
 module.exports = router;
