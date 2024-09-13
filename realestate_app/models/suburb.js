@@ -1,5 +1,5 @@
 const { DataTypes } = require('sequelize');
-const sequelize = require('../db'); // Import the Seq instance
+const sequelize = require('../db');
 
 const Suburb = sequelize.define('Suburb', {
   name: {
@@ -7,8 +7,8 @@ const Suburb = sequelize.define('Suburb', {
     allowNull: false
   }
 }, {
-  tableName: 'suburbs',   // Adjust according to your actual table name
-  timestamps: false       // Disable automatic timestamps
+  tableName: 'suburbs',  // Ensure this matches your actual database table name
+  timestamps: false      // Disable automatic timestamps if not needed
 });
 
 module.exports = Suburb;

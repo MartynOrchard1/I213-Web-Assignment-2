@@ -23,11 +23,16 @@
 
         <aside class="sidebar p-4">
             <h2 class="text-2xl font-bold">Locations</h2>
-        <ul>
-            {{#each suburbs}}
-            <li>{{this.suburb}}</li>
+            <ul>
+            {{#each properties}}
+                <li>
+                <strong>Address:</strong> {{this.address}} <br>
+                <strong>Suburb:</strong> {{this.Suburb.name}} <br> <!-- Correct way to access suburb name -->
+                <strong>Price:</strong> ${{this.price}} <br>
+                <img src="{{this.image_url}}" alt="Property Image">
+                </li>
             {{/each}}
-        </ul>
+            </ul>
         </aside>
 
         <main class="property-grid grid grid-cols-3 gap-4 p-4">
