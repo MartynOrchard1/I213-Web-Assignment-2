@@ -9,7 +9,8 @@ const app = express();
 const port = 3000;
 
 // Middleware for parsing request bodies (e.g., form submissions)
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
 
 // Serve static files (e.g., CSS, images)
 app.use(express.static(path.join(__dirname, 'public')));
