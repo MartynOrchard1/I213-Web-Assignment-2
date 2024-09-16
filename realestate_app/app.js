@@ -1,7 +1,8 @@
+// Express
 const express = require('express');
 const exphbs = require('express-handlebars');
 const { allowInsecurePrototypeAccess } = require('@handlebars/allow-prototype-access');
-const Handlebars = require('handlebars');  // Import raw Handlebars engine
+
 const path = require('path');
 const sequelize = require('./db'); // Sequelize instance
 const app = express();
