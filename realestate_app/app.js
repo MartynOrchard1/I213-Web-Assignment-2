@@ -1,9 +1,10 @@
 // Express
 const express = require('express');
-const exphbs = require('express-handlebars');
-const { allowInsecurePrototypeAccess } = require('@handlebars/allow-prototype-access');
-
+const session = require('express-session');
+const { engine } = reqiore("express-handlebars")
 const path = require('path');
+
+// Database 
 const sequelize = require('./db'); // Sequelize instance
 const app = express();
 const port = 3000;
