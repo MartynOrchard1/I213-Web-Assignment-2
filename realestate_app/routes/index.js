@@ -1,30 +1,22 @@
-// routes/index.js
-const express = require('express');
-const router = express.Router();
-const Property = require('../models/property');
-const Suburb = require('../models/suburb');
+const Sequelize = require('sequelize'); // Sequelize ORM
 
-router.get('/', async (req, res) => {
-  try {
-    // Fetch properties and include the suburb data via association
-    const properties = await Property.findAll({
-      limit: 21,
-      include: {
-        model: Suburb, // Include the Suburb model to get suburb name
-        attributes: ['name']  // Only select the suburb name
-      }
-    });
-
-    // Fetch suburbs for sidebar or other needs
-    const suburbs = await Suburb.findAll({
-      limit: 18
-    });
-
-    res.render('home', { properties, suburbs });
-  } catch (err) {
-    console.error(err);
-    res.status(500).send('Server Error');
-  }
+// Database connection (change according to your configuration)
+const sequelize = new Sequelize('realestate', 'root', '', {
+    host: '127.0.0.1',
+    dialect: 'mysql'
 });
 
-module.exports = router;
+// Import the models
+const Property = require('./property'); // Property model (suburb no longer needed)
+
+// Sync the models (this ensures the tables exist in the database)
+sequelize.sync().then(() => {
+    console.log("All models were synchronized successfully.");
+}).catch((err) => {
+    console.error("Error syncing the models:", err);
+});
+
+// Export the models to use them in other parts of the application
+module.exports = {
+    Property // Export the Property model (suburb not needed anymore)
+};

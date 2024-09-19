@@ -8,13 +8,6 @@
     <title>Home</title>
 </head>
 <body>
-    <header>
-        <nav class="flex justify-between p-4 bg-blue-500 text-white">
-            <a href="/">Home</a>
-            <a href="/login" class="btn btn-primary">login</a>
-        </nav>
-    </header>
-
   <section class="hero p-8 bg-gray-100">
     <h1 class="text-4xl font-bold">Find Your Dream Property</h1>
     <p class="mt-2 text-lg">Explore the best properties available in your suburb</p>
@@ -24,14 +17,15 @@
         <aside class="sidebar p-4">
             <h2 class="text-2xl font-bold">Locations</h2>
             <ul>
-            {{#each properties}}
-                <li>
-                <strong>Address:</strong> {{this.address}} <br>
-                <strong>Suburb:</strong> {{this.Suburb.name}} <br> <!-- Correct way to access suburb name -->
-                <strong>Price:</strong> ${{this.price}} <br>
-                <img src="{{this.image_url}}" alt="Property Image">
-                </li>
-            {{/each}}
+                {{#each properties}}
+                    <li>
+                        <img src="{{image_url}}" alt="Image of {{address}}">
+                        <strong>Address:</strong> {{address}}<br>
+                        <strong>Suburb:</strong> {{suburb}}<br>
+                        <strong>Price:</strong> ${{list_price}}<br>
+                        <!-- <strong>Property Image:</strong> <img src="/images/{{image_name}}" alt="Property Image"><br> !-->
+                    </li>
+                {{/each}}
             </ul>
         </aside>
 
@@ -39,7 +33,6 @@
             {{!-- Fetch and display properties go here --}} 
         </main>
 
-        <footer class="p-4 bg-blue-500 text-white">&copy; 2024 | Real Estate Listings | Martyn James Orchard | 21356032</footer>
 
 
 

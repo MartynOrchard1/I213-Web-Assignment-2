@@ -1,29 +1,81 @@
-const { DataTypes } = require('sequelize');
-const sequelize = require('../db'); // Importing Seq instance
-const Suburb = require('./suburb');
+const { Sequelize, DataTypes } = require('sequelize'); // Sequelize for ORM
 
+// Database connection (replace with your actual credentials)
+const sequelize = new Sequelize('realestate', 'root', '', {
+    host: '127.0.0.1',
+    dialect: 'mysql'
+});
+
+// Define the Property model based on the table structure you shared
 const Property = sequelize.define('Property', {
-    address: {
-      type: DataTypes.STRING,
-      allowNull: false
+    // Define the fields based on your table
+    address: { 
+        type: DataTypes.STRING, 
+        allowNull: false 
     },
-    suburb_id: {  // Ensure this is `suburb_id`, not `suburb`
-      type: DataTypes.INTEGER,
-      allowNull: false
+    suburb: { 
+        type: DataTypes.STRING, 
+        allowNull: false 
     },
-    price: {
-      type: DataTypes.DECIMAL(10, 2),
-      allowNull: false
+    town_city: { 
+        type: DataTypes.STRING, 
+        allowNull: false 
     },
-    image_url: {
-      type: DataTypes.STRING
+    description: { 
+        type: DataTypes.TEXT, 
+        allowNull: false 
+    },
+    list_price: { 
+        type: DataTypes.DECIMAL(10, 2), 
+        allowNull: false 
+    },
+    image_name: { 
+        type: DataTypes.STRING, 
+        allowNull: false 
+    },
+    bedrooms: { 
+        type: DataTypes.INTEGER, 
+        allowNull: false 
+    },
+    ensuite: { 
+        type: DataTypes.BOOLEAN, 
+        allowNull: false 
+    },
+    sold: { 
+        type: DataTypes.BOOLEAN, 
+        allowNull: false 
+    },
+    featured: { 
+        type: DataTypes.BOOLEAN, 
+        allowNull: false 
+    },
+    pool: { 
+        type: DataTypes.BOOLEAN, 
+        allowNull: false 
+    },
+    active: { 
+        type: DataTypes.BOOLEAN, 
+        allowNull: false 
+    },
+    created_at: { 
+        type: DataTypes.DATE, 
+        defaultValue: Sequelize.NOW 
+    },
+    updated_at: { 
+        type: DataTypes.DATE, 
+        defaultValue: Sequelize.NOW 
     }
-  }, {
-    tableName: 'properties',  // Ensure this matches your actual database table name
-    timestamps: false         // Disable automatic timestamps if not needed
-  });
-  
-  // Define the association between Property and Suburb
-  Property.belongsTo(Suburb, { foreignKey: 'suburb_id' });  // Link property to suburb
-  
-  module.exports = Property;
+}, {
+    tableName: 'properties', // Ensure this matches the table name in your database
+    timestamps: false // Since we are manually controlling created_at and updated_at
+});
+
+// Sync the model with the database
+sequelize.sync().then(() => {
+    console.log("Properties table synced successfully.");
+}).catch((err) => {
+    console.error("Error syncing the Properties table:", err);
+});
+
+// Export the model so we can use it in other files
+module.exports = Property;
