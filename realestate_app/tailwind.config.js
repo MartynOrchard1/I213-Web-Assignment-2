@@ -1,9 +1,10 @@
 module.exports = {
   content: [
-    './realestate_app/views/**/*.', // Handlebar templates
-    './realestate_app/routes/**/*.js',        // Your JS files
-    './realestate_app/public/**/*.html',      // If you have HTML files in public
-    './realestate_app/**/*.js',               // Any JS files throughout the app
+    './realestate_app/views/home.handlebars',       // Home template
+    './realestate_app/views/layouts/main.handlebars', // Main layout
+    './realestate_app/views/login.handlebars',       // Login template
+    './realestate_app/views/partials/dashboard.handlebars', // Dashboard partial
+    './realestate_app/routes/**/*.js',              // All your JS files in routes folder
   ],
   theme: {
     extend: {},
