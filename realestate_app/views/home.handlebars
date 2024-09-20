@@ -19,11 +19,10 @@
             <ul>
                 {{#each properties}}
                     <li>
-                        <img src="{{image_url}}" alt="Image of {{address}}">
+                        <img src="{{image_url}}" alt="Image of {{address}}" class="w-72 max-w-xs h-auto block my-4">
                         <strong>Address:</strong> {{address}}<br>
                         <strong>Suburb:</strong> {{suburb}}<br>
                         <strong>Price:</strong> ${{list_price}}<br>
-                        <!-- <strong>Property Image:</strong> <img src="/images/{{image_name}}" alt="Property Image"><br> !-->
                     </li>
                 {{/each}}
             </ul>
