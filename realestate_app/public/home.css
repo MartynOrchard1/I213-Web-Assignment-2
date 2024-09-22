@@ -1,29 +1,29 @@
 /* Body Styling */
 body {
-    background-color: #e6fffa; /* Corresponds to Tailwind's bg-teal-100 */
+    background-color: #e6fffa; 
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
 }
 
-/* Flexbox container for the layout */
+/* Container for the layout */
 .container {
     display: flex;
-    justify-content: center; /* Center the content horizontally */
-    padding: 24px; /* Corresponds to py-6 */
-    max-width: 1200px; /* Limit the width to keep the content readable */
+    justify-content: center; 
+    padding: 24px; 
+    max-width: 1200px; 
     width: 100%;
-    margin: 0 auto; /* Center the container within the body */
+    margin: 0 auto; 
 }
 
-/* Sidebar Styling */
+/* Sidebar */
 aside {
     width: 100%;
-    max-width: 20%; /* Corresponds to lg:w-1/5 */
+    max-width: 20%; 
     background-color: #fff;
-    padding: 24px; /* Corresponds to p-6 */
-    margin-right: 16px; /* Corresponds to mr-4 */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Corresponds to shadow-lg */
+    padding: 24px; 
+    margin-right: 16px; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
     border-radius: 8px;
 }
 
@@ -35,7 +35,7 @@ aside h2 {
 
 /* Sidebar links */
 aside ul a {
-    color: #3b82f6; /* Corresponds to text-blue-500 */
+    color: gray; 
     text-decoration: none;
     display: block;
     margin-bottom: 8px;
@@ -43,7 +43,8 @@ aside ul a {
 }
 
 aside ul a:hover {
-    text-decoration: underline; /* Corresponds to hover:underline */
+    text-decoration: wavy;
+    color: blue;
 }
 
 /* Main Content */
@@ -63,17 +64,17 @@ main {
 
 /* Property card styling */
 .property-card {
-    background-color: #1f2937; /* Corresponds to bg-gray-800 */
-    color: #fff; /* Corresponds to text-white */
-    border-radius: 8px; /* Corresponds to rounded-lg */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Corresponds to shadow-md */
+    background-color: #1f2937; 
+    color: #fff; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
     overflow: hidden;
 }
 
 .property-card .address {
-    padding: 8px; /* Corresponds to p-2 */
-    font-size: 1rem; /* Corresponds to text-lg */
-    font-weight: 600; /* Corresponds to font-semibold */
+    padding: 8px; 
+    font-size: 1rem; 
+    font-weight: 600; 
     text-align: center;
 }
 
