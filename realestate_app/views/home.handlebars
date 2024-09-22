@@ -4,32 +4,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="/output.css" rel="stylesheet">
+  <link href="/home.css" rel="stylesheet">
   <title>Home</title>
 </head>
 
-<body class="bg-teal-100">
-  <div class="flex justify-center py-6">
+<body>
+  <div class="container">
     {{!-- Sidebar --}}
-    <aside class="w-full lg:w-1/5 bg-white p-6 mr-4 shadow-lg">
-      <h2 class="text-xl font-bold mb-4">Locations</h2>
-      <ul class="space-y-2">
-        {{!-- Suburbs --}}
-        <a href="#" class="text-blue-500 hover:underline">Location 1</a>
-        <a href="#" class="text-blue-500 hover:underline">Location 2</a>
-        <a href="#" class="text-blue-500 hover:underline">Location 3</a>
+    <aside>
+      <h2>Locations</h2>
+      <ul>
+        <a href="#" class="location-link">Location 1</a>
+        <a href="#" class="location-link">Location 2</a>
+        <a href="#" class="location-link">Location 3</a>
         {{!-- Can add more if needed --}}
       </ul>
     </aside>
 
     {{!-- Property grid --}}
-    <main class="w-full lg:w-4/5 p-4">
-      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-7 gap-4">
+    <main>
+      <div class="property-grid">
         {{#each properties}}
-        <div class="bg-gray-800 text-white rounded-lg shadow-md overflow-hidden"> 
-          <div class="p-2 text-lg font-semibold sm:text-base md:text-lg lg:text-xl">{{address}}</div> <!-- Address -->
-          <img src="{{image_url}}" alt="Image of {{address}}" class="w-full h-32 object-cover"> <!-- Image -->
-          <div class="p-2 text-white font-bold text-lg sm:text-sm md:text-lg lg:text-xl text-center">${{list_price}}</div> <!-- Price -->
+        <div class="property-card">
+          <div class="address">{{address}}</div> <!-- Address -->
+          <img src="{{image_url}}" alt="Image of {{address}}" /> <!-- Image -->
+          <div class="price">${{list_price}}</div> <!-- Price -->
         </div>
         {{/each}}
       </div>

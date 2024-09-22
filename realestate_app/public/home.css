@@ -1,0 +1,158 @@
+/* Body Styling */
+body {
+    background-color: #e6fffa; /* Corresponds to Tailwind's bg-teal-100 */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Flexbox container for the layout */
+.container {
+    display: flex;
+    justify-content: center; /* Center the content horizontally */
+    padding: 24px; /* Corresponds to py-6 */
+    max-width: 1200px; /* Limit the width to keep the content readable */
+    width: 100%;
+    margin: 0 auto; /* Center the container within the body */
+}
+
+/* Sidebar Styling */
+aside {
+    width: 100%;
+    max-width: 20%; /* Corresponds to lg:w-1/5 */
+    background-color: #fff;
+    padding: 24px; /* Corresponds to p-6 */
+    margin-right: 16px; /* Corresponds to mr-4 */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Corresponds to shadow-lg */
+    border-radius: 8px;
+}
+
+aside h2 {
+    font-size: 1.25rem; /* Corresponds to text-xl */
+    font-weight: bold;
+    margin-bottom: 16px; /* Corresponds to mb-4 */
+}
+
+/* Sidebar links */
+aside ul a {
+    color: #3b82f6; /* Corresponds to text-blue-500 */
+    text-decoration: none;
+    display: block;
+    margin-bottom: 8px;
+    transition: color 0.3s;
+}
+
+aside ul a:hover {
+    text-decoration: underline; /* Corresponds to hover:underline */
+}
+
+/* Main Content */
+main {
+    width: 100%;
+    max-width: 80%; /* Corresponds to lg:w-4/5 */
+    padding: 16px; /* Corresponds to p-4 */
+}
+
+/* Grid for properties */
+.property-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px; /* Corresponds to gap-4 */
+}
+
+
+/* Property card styling */
+.property-card {
+    background-color: #1f2937; /* Corresponds to bg-gray-800 */
+    color: #fff; /* Corresponds to text-white */
+    border-radius: 8px; /* Corresponds to rounded-lg */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Corresponds to shadow-md */
+    overflow: hidden;
+}
+
+.property-card .address {
+    padding: 8px; /* Corresponds to p-2 */
+    font-size: 1rem; /* Corresponds to text-lg */
+    font-weight: 600; /* Corresponds to font-semibold */
+    text-align: center;
+}
+
+.property-card img {
+    width: 100%;
+    height: 128px; /* Corresponds to h-32 */
+    object-fit: cover; /* Corresponds to object-cover */
+}
+
+.property-card .price {
+    padding: 8px; /* Corresponds to p-2 */
+    font-weight: bold;
+    font-size: 1.25rem; /* Corresponds to text-lg */
+    text-align: center;
+}
+
+/* Responsive adjustments for smaller screens */
+@media screen and (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center; /* Center content vertically on smaller screens */
+    }
+
+    aside {
+        max-width: 90%; /* Sidebar takes full width on small screens */
+        margin-right: 0;
+        margin-bottom: 24px; /* Add space between sidebar and main content */
+    }
+
+    main {
+        max-width: 90%; /* Main content also takes full width on small screens */
+    }
+
+    .property-grid {
+        grid-template-columns: repeat(2, 1fr); /* Two columns on smaller screens */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .property-grid {
+        grid-template-columns: 1fr; /* Single column on very small screens */
+    }
+
+    aside {
+        max-width: 100%;
+    }
+
+    main {
+        max-width: 100%;
+    }
+}
+
+/* Responsive grid columns */
+@media screen and (min-width: 600px) {
+    .property-grid {
+        grid-template-columns: repeat(2, 1fr); 
+    }
+}
+
+@media screen and (min-width: 700px) {
+    .property-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+@media screen and (min-width: 800px) {
+    .property-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    .property-grid {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .property-grid {
+        grid-template-columns: repeat(7, 1fr); 
+    }
+} 
+
