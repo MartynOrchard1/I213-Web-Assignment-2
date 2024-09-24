@@ -4,24 +4,24 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    height: 100vh; /* Ensure the body takes the full height of the viewport */
+    display: flex;
+    flex-direction: column;
 }
 
 /* Container for the layout */
 .container {
     display: flex;
-    justify-content: center; 
+    justify-content: flex-start; /* Aligns content to the top */
+    align-items: stretch; /* Ensures both sidebar and main content stretch to the same height */
     padding: 24px; 
     max-width: 1200px; 
     width: 100%;
     margin: 0 auto; 
+    height: 100%; /* Ensures container takes up full height */
 }
 
-
 /* TODO: MAKE THE SIDEBAR AND PROPERTIES GRID LINE UP TOP-BOTTOM | FIX FOOTER COLOR | MAKE FOOTER ATTACH TO BOTTOM OF PAGE | THERE'S PROBABLY MORE BUT FUCK IT*/
-
-
-
-
 
 /* Sidebar */
 aside {
@@ -32,17 +32,20 @@ aside {
     margin-right: 16px; 
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
     border-radius: 8px;
+    display: flex;
+    flex-direction: column;
 }
 
+/* Sidebar title */
 aside h2 {
-    font-size: 1.25rem; /* Corresponds to text-xl */
+    font-size: 1.25rem;
     font-weight: bold;
-    margin-bottom: 16px; /* Corresponds to mb-4 */
+    margin-bottom: 16px;
 }
 
 /* Sidebar links */
 aside ul a {
-    color: gray; 
+    color: gray;
     text-decoration: none;
     display: block;
     margin-bottom: 8px;
@@ -57,17 +60,23 @@ aside ul a:hover {
 /* Main Content */
 main {
     width: 100%;
-    max-width: 100%; 
     padding: 20px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch; 
+    overflow: hidden; 
 }
 
-/* Grid for properties */
+/* Property grid */
 .property-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 10px; 
+    flex-grow: 1; 
+    overflow-y: auto; 
+    grid-auto-rows: minmax(150px, auto);
 }
-
 
 /* Property card styling */
 .property-card {
@@ -77,18 +86,19 @@ main {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
     overflow: hidden;
     width: 100%;
+    z-index: 0;
+}
+
+.property-card:hover {
+    transform: scale(1.1); 
+    z-index: 1;
     transition: transform 0.3s ease-in-out;
 }
 
-/* Enlarge property card on hover  */
-.property-card:hover {
-    transform: scale(1.5); 
-}
-
 .property-card .address {
-    padding: 8px; 
+    padding: 8px;
     font-size: 1rem; 
-    font-weight: 600; 
+    font-weight: 600;
     text-align: center;
 }
 
@@ -98,9 +108,9 @@ main {
 }
 
 .property-card .price {
-    padding: 8px; /* Corresponds to p-2 */
+    padding: 8px;
     font-weight: bold;
-    font-size: 1.25rem; /* Corresponds to text-lg */
+    font-size: 1.25rem;
     text-align: center;
 }
 
@@ -109,11 +119,11 @@ main {
     aside {
         max-width: 90%; 
         margin-right: 0;
-        margin-bottom: 24px; 
+        margin-bottom: 24px;
     }
 
     main {
-        max-width: 90%; 
+        max-width: 90%;
     }
 
     .property-grid {
@@ -123,7 +133,7 @@ main {
 
 @media screen and (max-width: 480px) {
     .property-grid {
-        grid-template-columns: 1fr; 
+        grid-template-columns: 1fr;
     }
 
     aside {
@@ -147,6 +157,7 @@ main {
         grid-template-columns: repeat(3, 1fr);
     }
 }
+
 @media screen and (min-width: 800px) {
     .property-grid {
         grid-template-columns: repeat(4, 1fr);
@@ -163,5 +174,4 @@ main {
     .property-grid {
         grid-template-columns: repeat(7, 1fr); 
     }
-} 
-
+}
