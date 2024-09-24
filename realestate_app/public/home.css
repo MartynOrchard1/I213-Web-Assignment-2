@@ -76,6 +76,13 @@ main {
     border-radius: 8px; 
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
     overflow: hidden;
+    width: 100%;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Enlarge property card on hover  */
+.property-card:hover {
+    transform: scale(1.5); 
 }
 
 .property-card .address {
@@ -99,29 +106,24 @@ main {
 
 /* Responsive adjustments for smaller screens */
 @media screen and (max-width: 768px) {
-    .container {
-        flex-direction: column;
-        align-items: center; /* Center content vertically on smaller screens */
-    }
-
     aside {
-        max-width: 90%; /* Sidebar takes full width on small screens */
+        max-width: 90%; 
         margin-right: 0;
-        margin-bottom: 24px; /* Add space between sidebar and main content */
+        margin-bottom: 24px; 
     }
 
     main {
-        max-width: 90%; /* Main content also takes full width on small screens */
+        max-width: 90%; 
     }
 
     .property-grid {
-        grid-template-columns: repeat(2, 1fr); /* Two columns on smaller screens */
+        grid-template-columns: repeat(2, 1fr); 
     }
 }
 
 @media screen and (max-width: 480px) {
     .property-grid {
-        grid-template-columns: 1fr; /* Single column on very small screens */
+        grid-template-columns: 1fr; 
     }
 
     aside {
