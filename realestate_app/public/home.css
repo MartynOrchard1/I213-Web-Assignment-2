@@ -57,21 +57,21 @@ aside ul a:hover {
 /* Main Content */
 main {
     width: 100%;
-    max-width: 80%; /* Corresponds to lg:w-4/5 */
-    padding: 16px; /* Corresponds to p-4 */
+    max-width: 100%; 
+    padding: 20px; 
 }
 
 /* Grid for properties */
 .property-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 16px; /* Corresponds to gap-4 */
+    gap: 10px; 
 }
 
 
 /* Property card styling */
 .property-card {
-    background-color: #1f2937; 
+    background-color: #616161; 
     color: #fff; 
     border-radius: 8px; 
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
@@ -87,8 +87,7 @@ main {
 
 .property-card img {
     width: 100%;
-    height: 128px; /* Corresponds to h-32 */
-    object-fit: cover; /* Corresponds to object-cover */
+    height: 128px;
 }
 
 .property-card .price {
