@@ -52,7 +52,14 @@ const Property = sequelize.define('Property', {
     timestamps: false
 });
 
-
+// Middleware to check if a user is authenticated
+const isAuthenticated = (req, res, next) => {
+    if (req.session.user) {
+        next();
+    } else {
+        res.redirect('/login');
+    }
+};
 
 // Route: Home Page
 app.get("/", async (req, res) => {
@@ -167,14 +174,7 @@ app.use((err, req, res, next) => {
     res.status(500).send('Something went wrong!');
 });
 
-// Middleware to check if a user is authenticated
-const isAuthenticated = (req, res, next) => {
-    if (req.session.user) {
-        next();
-    } else {
-        res.redirect('/login');
-    }
-};
+
 
 // Start the server
 app.listen(PORT, async () => {
