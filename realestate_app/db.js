@@ -1,8 +1,8 @@
 const { Sequelize } = require('sequelize');
 
-const sequelize = new Sequelize('item_database', 'root', '', {
-    host: 'localhost',
-    dialect: 'mysql',
-}) ;
+const sequelize = new Sequelize('realestate', 'root', '', {
+    host: '127.0.0.1',
+    dialect: 'mysql'
+});
 
 module.exports = sequelize;

@@ -15,12 +15,14 @@
       <h2>Locations</h2>
       <ul>
         {{!-- Suburb List --}}
-        <a href="#" class="location-link">Location 1</a>
-        <a href="#" class="location-link">Location 2</a>
-        <a href="#" class="location-link">Location 3</a>
-        {{!-- Can add more if needed --}}
+        {{#each suburbs}}
+        <li>
+          <a href="/filter/{{suburb}}" class="location-link">{{suburb}}</a>
+        </li>
+        {{/each}}
       </ul>
     </aside>
+
 
     {{!-- Property grid --}}
     <main>
