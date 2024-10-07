@@ -63,37 +63,39 @@ const isAuthenticated = (req, res, next) => {
 
 // Route: Home Page
 app.get("/", async (req, res) => {
-  try {
-      // Fetch properties (limit as needed)
-      const properties = await Property.findAll({ limit: 21 });
+    try {
+      const properties = await Property.findAll({
+        limit: 21, // Edit this to adjust max amount of properties pulled from DB
+        order: Sequelize.literal('RAND()') // Randomly pull houses from db
+      });
+  
       const plainProperties = properties.map(prop => {
-          const property = prop.get({ plain: true });
-          property.image_url = `/images/houses/${property.image_name}`; // Assuming images are in the public folder
-          return property;
+        const property = prop.get({ plain: true });
+        property.image_url = `/images/houses/${property.image_name}`;
+        return property;
       });
-
-      // Fetch distinct suburbs from the database, ordered alphabetically
+  
+      // Fetch distinct suburbs (as before)
       const suburbs = await Property.findAll({
-          attributes: [[Sequelize.fn('DISTINCT', Sequelize.col('suburb')), 'suburb']],
-          order: [['suburb', 'ASC']] // Order alphabetically
+        attributes: [[Sequelize.fn('DISTINCT', Sequelize.col('suburb')), 'suburb']],
+        limit: 18 // Edit this to add more suburbs
       });
-
-      // Add 'All' as a default option for viewing all properties
-      const plainSuburbs = [{ suburb: 'All' }, ...suburbs.map(suburb => suburb.get({ plain: true }))];
-
+      const plainSuburbs = suburbs.map(suburb => suburb.get({ plain: true }));
+  
       res.render("home", {
-          layout: "main",
-          title: "Home",
-          properties: plainProperties,  // Pass properties with image URLs
-          suburbs: plainSuburbs          // Pass suburbs for the sidebar
+        layout: "main",
+        title: "Home",
+        properties: plainProperties,  
+        suburbs: plainSuburbs
       });
-  } catch (error) {
+    } catch (error) {
       console.error('Error fetching properties:', error);
       res.status(500).send('An error occurred while fetching properties');
-  }
-});
+    }
+  });
+  
 
-// Route: Filter Properties by Suburb
+// Route: Subrub
 app.get("/filter/:suburb", async (req, res) => {
     try {
         const suburbName = req.params.suburb;
@@ -128,8 +130,6 @@ app.get("/filter/:suburb", async (req, res) => {
         res.status(500).send('An error occurred while filtering properties');
     }
 });
-
-// Other routes (Login, Dashboard, etc.) remain unchanged
 
 // Start the server
 app.listen(PORT, async () => {
