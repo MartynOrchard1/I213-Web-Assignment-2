@@ -52,14 +52,7 @@ const Property = sequelize.define('Property', {
     timestamps: false
 });
 
-// Middleware to check if a user is authenticated
-const isAuthenticated = (req, res, next) => {
-    if (req.session.user) {
-        next();
-    } else {
-        res.redirect('/login');
-    }
-};
+
 
 // Route: Home Page
 app.get("/", async (req, res) => {
@@ -141,6 +134,47 @@ app.get("/filter/:suburb", async (req, res) => {
         res.status(500).send('An error occurred while filtering properties');
     }
 });
+
+// Route: Login Page
+app.get('/login', (req, res) => {
+    res.render('login', { layout: false, title: "Login" });
+});
+
+// POST Route: Handle Login
+app.post('/login', (req, res) => {
+    const { username, password } = req.body;
+
+    if (username === 'admin' && password === 'password') {
+        req.session.user = username;
+        res.redirect('/dashboard');
+    } else {
+        res.send('Invalid Credentials. Please <a href="/login">Try Again</a>.');
+    }
+});
+
+// Protected Route: Dashboard
+app.get('/dashboard', isAuthenticated, (req, res) => {
+    res.render('dashboard', {
+        user: req.session.user,
+        layout: false,
+        title: "Dashboard"
+    });
+});
+
+// Error-handling middleware
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).send('Something went wrong!');
+});
+
+// Middleware to check if a user is authenticated
+const isAuthenticated = (req, res, next) => {
+    if (req.session.user) {
+        next();
+    } else {
+        res.redirect('/login');
+    }
+};
 
 // Start the server
 app.listen(PORT, async () => {
