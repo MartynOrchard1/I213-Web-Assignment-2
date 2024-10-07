@@ -24,22 +24,25 @@ body {
     padding: 24px;
     max-width: 2000px;
     width: 100%;
-    height: calc(100vh - 60px); 
     margin: 0 auto;
     box-sizing: border-box; /* Ensure padding doesn't affect height */
 }
 
 aside {
-    width: 100%;
+    width: 80%;
     max-width: 20%;
+    height: 100%;
     background-color: #fff;
     padding: 24px;
     margin-right: 16px;
+    margin-top: 20px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     display: flex;
     flex-direction: column;
-    box-sizing: border-box;
+    /* box-sizing: border-box; */
+    text-align: center;
+    list-style: none;
 }
 
 aside h2 {
@@ -67,7 +70,6 @@ aside ul a:hover {
     grid-template-columns: repeat(7, 1fr); /* 7 columns */
     grid-template-rows: repeat(3, 1fr);    /* 3 rows */
     gap: 10px; /* Adjust spacing between grid items */
-    height: auto; /* Adjust to match the height of sidebar */
     flex-grow: 1; /* Allow the grid to grow with available space */
     padding-bottom: 40px;
     box-sizing: border-box;
@@ -82,10 +84,10 @@ aside ul a:hover {
     position: relative;
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
     width: 100%;
-    height: 320px; /* Set a fixed height for the card */
+    height: 320px; 
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Space the content evenly */
+    justify-content: space-between; 
 }
 
 .property-card:hover {
