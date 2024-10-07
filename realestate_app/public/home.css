@@ -42,7 +42,27 @@ aside {
     flex-direction: column;
     /* box-sizing: border-box; */
     text-align: center;
+
 }
+
+.sidebar-top {
+    background-color: #616161;
+    padding: 10px;
+    border-radius: 8px 8px 0 0;
+    text-align: center;
+}
+
+.sidebar-bottom {
+    
+}
+
+
+.location-link {
+    color: black;
+    font-size: large;
+    line-height: 39px;
+}
+
 
 aside h2 {
     font-size: 1.25rem;

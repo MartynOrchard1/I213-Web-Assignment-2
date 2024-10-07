@@ -12,13 +12,19 @@
   <div class="container">
     {{!-- Sidebar --}}
     <aside>
+      <div class="sidebar-top">
       <h2>Locations</h2>
+      </div>
       <ul>
         {{!-- Suburb List --}}
         {{#each suburbs}}
-          <a href="/filter/{{suburb}}" class="location-link">{{suburb}}</a>
+        <a href="/filter/{{suburb}}" class="location-link">{{suburb}}</a>
+        {{#unless @last}} 
+        <hr>
+        {{/unless}}
         {{/each}}
       </ul>
+      <div class="sidebar-bot"></div>
     </aside>
 
 
