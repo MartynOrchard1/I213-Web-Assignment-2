@@ -3,31 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="/output.css" rel="stylesheet">
+  <link href="/layout.css" rel="stylesheet">
   <title>{{title}}</title>
 </head>
 <body>
   {{!-- Header/Nav --}}
-  <nav class="bg-teal-200 p-4 flex justify-between text-white">
-    <div>
-      <a href="/" class="text-2xl font-bold">Home</a>
+  <nav class="nav-bar">
+    <div class="nav-left">
+      <a href="/" class="home-link">Home</a>
     </div>
-    <div>
-      <a href="/login" class="text-lg hover:underline">Login</a>
+    <div class="nav-right">
+      <a href="/login" class="login-link">Login</a>
     </div>
   </nav>
 
-  <section class="nav p-8 bg-teal-500 text-center text-white">
-    <h1 class="text-4xl font-bold mb-2">Ready to move?</h1>
-    <p class="text-lg">Find your next home in our extensive database of properties for sale and rent</p>
-    <button class="learn-more mt-4 bg-pink-500 hover:bg-pink-600 text-white py-2 px-6 rounded-lg">Learn more about us</button>
+  <section class="hero-section">
+    <h1 class="hero-title">Ready to move?</h1>
+    <p class="hero-subtitle">Find your next home in our extensive database of properties for sale and rent</p>
+    <button class="learn-more-btn">Learn more about us</button>
   </section>
 
   <main>
     {{{ body }}}  <!-- This will include the content of each page -->
   </main>
 
-  <footer class="p-4 bg-teal-200 text-white text-center">
+  <footer class="footer">
     &copy; 2024 Real Estate Listings | Martyn James Orchard | 21356032
   </footer>
 </body>

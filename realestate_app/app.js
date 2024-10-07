@@ -30,6 +30,8 @@ app.use(session({
 
 // Database connection
 const sequelize = require('./db');
+const { title } = require("process");
+const { error } = require("console");
 
 // Define Property model
 const Property = sequelize.define('Property', {
@@ -155,7 +157,11 @@ app.post('/login', (req, res) => {
         req.session.user = username;
         res.redirect('/dashboard');
     } else {
-        res.send('Invalid Credentials. Please <a href="/login">Try Again</a>.');
+        res.render('login', {
+            layout: false, 
+            title: "Login",
+            error: "Invalid Credentials. Please try again."
+        });
     }
 });
 

@@ -82,7 +82,7 @@ aside ul a:hover {
     position: relative;
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
     width: 100%;
-    height: 300px; /* Set a fixed height for the card */
+    height: 320px; /* Set a fixed height for the card */
     display: flex;
     flex-direction: column;
     justify-content: space-between; /* Space the content evenly */
@@ -102,8 +102,8 @@ aside ul a:hover {
 }
 
 .property-card .address {
-    margin-top: 5px;
-    height: 50px;
+    margin-top: 15px;
+    height: 20px;
     font-size: 1rem; 
     font-weight: 600;
     text-align: center;
@@ -111,10 +111,11 @@ aside ul a:hover {
 }
 
 .property-card .price {
+    height: 20px;
     font-weight: bold;
     font-size: 1.25rem;
     text-align: center;
-    margin-bottom: 5px;
+    margin-bottom: 15px;
 }
 
 /* Responsive adjustments */
