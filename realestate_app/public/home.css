@@ -2,8 +2,9 @@ main {
     display: flex;
     padding: 20px; 
     overflow: hidden;
-    flex-direction: column;
+    flex-direction: row; /* Changed to row to align sidebar and grid horizontally */
     flex-grow: 1;
+    align-items: flex-start; /* Align items at the top */
 }
 
 body {
@@ -19,14 +20,14 @@ body {
 .container {
     display: flex;
     justify-content: flex-start;
-    align-items: stretch; 
+    align-items: flex-start; /* Aligning both at the top */
     padding: 24px;
     max-width: 2000px;
     width: 100%;
     height: calc(100vh - 60px); 
     margin: 0 auto;
+    box-sizing: border-box; /* Ensure padding doesn't affect height */
 }
-
 
 aside {
     width: 100%;
@@ -38,11 +39,9 @@ aside {
     border-radius: 8px;
     display: flex;
     flex-direction: column;
-    height: 100%; 
+    box-sizing: border-box;
 }
 
-
-/* Sidebar title */
 aside h2 {
     font-size: 1.25rem;
     font-weight: bold;
@@ -63,21 +62,17 @@ aside ul a:hover {
     color: blue;
 }
 
-
-
-/* Property grid */
 .property-grid {
     display: grid;
     grid-template-columns: repeat(7, 1fr); /* 7 columns */
     grid-template-rows: repeat(3, 1fr);    /* 3 rows */
     gap: 10px; /* Adjust spacing between grid items */
-    overflow-y: auto;
-    height: calc(100vh - 200px); /* Adjust height of grid based on viewport */
+    height: auto; /* Adjust to match the height of sidebar */
+    flex-grow: 1; /* Allow the grid to grow with available space */
     padding-bottom: 40px;
+    box-sizing: border-box;
 }
 
-
-/* Property card styling */
 .property-card {
     background-color: #616161; 
     color: #fff; 
@@ -87,35 +82,42 @@ aside ul a:hover {
     position: relative;
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
     width: 100%;
-    z-index: 1;
+    height: 300px; /* Set a fixed height for the card */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Space the content evenly */
 }
 
 .property-card:hover {
-    transform: scale(1.2); /* Scale slightly */
-    z-index: 10; /* Bring the hovered card to the top */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Add shadow to emphasize hover */
+    transform: scale(1.05);
+    z-index: 10;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Image scaling */
+.property-card img {
+    width: 100%;
+    height: 220px; /* Set a fixed height for the images */
+    object-fit: cover; /* Ensure the image covers the entire area without stretching */
 }
 
 .property-card .address {
-    padding: 8px;
+    margin-top: 5px;
+    height: 50px;
     font-size: 1rem; 
     font-weight: 600;
     text-align: center;
-}
-
-.property-card img {
-    width: 100%;
-    height: 128px;
+    text-overflow: initial;
 }
 
 .property-card .price {
-    padding: 8px;
     font-weight: bold;
     font-size: 1.25rem;
     text-align: center;
+    margin-bottom: 5px;
 }
 
-/* Responsive adjustments for smaller screens */
+/* Responsive adjustments */
 @media screen and (max-width: 768px) {
     aside {
         max-width: 90%; 

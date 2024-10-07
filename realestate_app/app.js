@@ -64,36 +64,38 @@ const isAuthenticated = (req, res, next) => {
 // Route: Home Page
 app.get("/", async (req, res) => {
     try {
-      const properties = await Property.findAll({
-        limit: 21, // Edit this to adjust max amount of properties pulled from DB
-        order: Sequelize.literal('RAND()') // Randomly pull houses from db
-      });
+        // Fetch random active properties
+        const properties = await Property.findAll({
+            where: { active: true },  // Only fetch active properties
+            order: sequelize.random(), // Select random properties
+            limit: 21 // Limit to 21 properties
+        });
   
-      const plainProperties = properties.map(prop => {
-        const property = prop.get({ plain: true });
-        property.image_url = `/images/houses/${property.image_name}`;
-        return property;
-      });
+        const plainProperties = properties.map(prop => {
+            const property = prop.get({ plain: true });
+            property.image_url = `/images/houses/${property.image_name}`; // Image path
+            return property;
+        });
   
-      // Fetch distinct suburbs (as before)
-      const suburbs = await Property.findAll({
-        attributes: [[Sequelize.fn('DISTINCT', Sequelize.col('suburb')), 'suburb']],
-        limit: 18 // Edit this to add more suburbs
-      });
-      const plainSuburbs = suburbs.map(suburb => suburb.get({ plain: true }));
+        // Fetch distinct suburbs for the sidebar
+        const suburbs = await Property.findAll({
+            attributes: [[Sequelize.fn('DISTINCT', Sequelize.col('suburb')), 'suburb']],
+            where: { active: true }, // Only active properties
+            limit: 18 // Limit to 18 suburbs
+        });
+        const plainSuburbs = suburbs.map(suburb => suburb.get({ plain: true }));
   
-      res.render("home", {
-        layout: "main",
-        title: "Home",
-        properties: plainProperties,  
-        suburbs: plainSuburbs
-      });
+        res.render("home", {
+            layout: "main",
+            title: "Home",
+            properties: plainProperties, // Pass properties with image URLs
+            suburbs: plainSuburbs
+        });
     } catch (error) {
-      console.error('Error fetching properties:', error);
-      res.status(500).send('An error occurred while fetching properties');
+        console.error('Error fetching properties:', error);
+        res.status(500).send('An error occurred while fetching properties');
     }
   });
-  
 
 // Route: Subrub
 app.get("/filter/:suburb", async (req, res) => {
@@ -103,19 +105,28 @@ app.get("/filter/:suburb", async (req, res) => {
 
         // If suburb is "All", show all properties
         if (suburbName === "All") {
-            properties = await Property.findAll();
+            properties = await Property.findAll({
+                limit: 21
+            });
         } else {
             properties = await Property.findAll({
-                where: { suburb: suburbName }
+                where: { suburb: suburbName },
+                limit: 21
             });
         }
 
-        const plainProperties = properties.map(prop => prop.get({ plain: true }));
+        const plainProperties = properties.map(prop => {
+            const property = prop.get({ plain: true });
+            // Assuming images are stored in the 'public/images/houses/' directory
+            property.image_url = `/images/houses/${property.image_name}`;
+            return property;
+        });
 
         // Fetch distinct suburbs again for sidebar, ordered alphabetically
         const suburbs = await Property.findAll({
             attributes: [[Sequelize.fn('DISTINCT', Sequelize.col('suburb')), 'suburb']],
-            order: [['suburb', 'ASC']] // Order alphabetically
+            order: [['suburb', 'ASC']],  // Order alphabetically
+            limit: 21
         });
         const plainSuburbs = [{ suburb: 'All' }, ...suburbs.map(suburb => suburb.get({ plain: true }))];
 
