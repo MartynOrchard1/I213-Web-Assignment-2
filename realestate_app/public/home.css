@@ -21,14 +21,12 @@ body {
     margin: 0;
     box-sizing: border-box;
     flex-grow: 1;
-    /* Ensures the container grows to fill available height */
 }
 
 /* Main section */
 main {
     width: 100%;
     flex-grow: 1;
-    /* Allows the main section to take up remaining space */
     display: flex;
     flex-direction: column;
 }
