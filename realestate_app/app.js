@@ -146,7 +146,7 @@ app.get("/filter/:suburb", async (req, res) => {
 
 // Route: Login Page
 app.get('/login', (req, res) => {
-    res.render('login', { layout: false, title: "Login" });
+    res.render('login', { layout: "main", title: "Login" });
 });
 
 // POST Route: Handle Login
@@ -158,7 +158,7 @@ app.post('/login', (req, res) => {
         res.redirect('/dashboard');
     } else {
         res.render('login', {
-            layout: false, 
+            layout: "main", 
             title: "Login",
             error: "Invalid Credentials. Please try again."
         });
