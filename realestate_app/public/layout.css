@@ -3,81 +3,86 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  }
-  
-body {
-height: 100%;
 }
 
-main {
-    min-height: calc(100vh - 180px);
-}
-
-  /* Nav styles */
-  .nav-bar {
-    background-color: #81e6d9; /* teal-200 */
-    padding: 16px; /* p-4 */
+/* Nav styles */
+.nav-bar {
+    background-color: #81e6d9;
+    /* teal-200 */
+    padding: 16px;
+    /* p-4 */
     display: flex;
     justify-content: space-between;
     color: white;
-  }
-  
-  .nav-left .home-link {
-    font-size: 24px; /* text-2xl */
+}
+
+.nav-left .home-link {
+    font-size: 24px;
+    /* text-2xl */
     font-weight: bold;
     text-decoration: none;
     color: white;
-  }
-  
-  .nav-right .login-link {
-    font-size: 18px; /* text-lg */
+}
+
+.nav-right .login-link {
+    font-size: 18px;
+    /* text-lg */
     text-decoration: none;
     color: white;
-  }
-  
-  .nav-right .login-link:hover {
+}
+
+.nav-right .login-link:hover {
     text-decoration: underline;
-  }
-  
-  /* Hero section styles */
-  .hero-section {
-    padding: 32px; /* p-8 */
-    background-color: #319795; /* teal-500 */
+}
+
+/* Hero section styles */
+.hero-section {
+    padding: 32px;
+    /* p-8 */
+    background-color: #319795;
+    /* teal-500 */
     text-align: center;
     color: white;
-  }
-  
-  .hero-title {
-    font-size: 36px; /* text-4xl */
+}
+
+.hero-title {
+    font-size: 36px;
+    /* text-4xl */
     font-weight: bold;
-    margin-bottom: 8px; /* mb-2 */
-  }
-  
-  .hero-subtitle {
-    font-size: 18px; /* text-lg */
-  }
-  
-  .learn-more-btn {
-    margin-top: 16px; /* mt-4 */
-    background-color: #ed64a6; /* pink-500 */
+    margin-bottom: 8px;
+    /* mb-2 */
+}
+
+.hero-subtitle {
+    font-size: 18px;
+    /* text-lg */
+}
+
+.learn-more-btn {
+    margin-top: 16px;
+    /* mt-4 */
+    background-color: #ed64a6;
+    /* pink-500 */
     color: white;
-    padding: 8px 24px; /* py-2 px-6 */
-    border-radius: 8px; /* rounded-lg */
+    padding: 8px 24px;
+    /* py-2 px-6 */
+    border-radius: 8px;
+    /* rounded-lg */
     border: none;
     cursor: pointer;
-  }
-  
-  .learn-more-btn:hover {
-    background-color: #d53f8c; /* pink-600 */
-  }
-  
-  /* Footer styles */
-  .footer {
-    position: relative;
-    bottom: 0;
-    width: 100%;
+}
+
+.learn-more-btn:hover {
+    background-color: #d53f8c;
+    /* pink-600 */
+}
+
+footer {
+    margin-top: auto;
+    /* Ensure footer sticks to the bottom */
+    padding: 20px;
     background-color: #81e6d9;
     color: white;
-    padding: 20px;
     text-align: center;
+    width: 100%;
 }

@@ -18,6 +18,17 @@ body {
     width: 100%;
     margin: 0;
     box-sizing: border-box;
+    flex-grow: 1;
+    /* Ensures the container grows to fill available height */
+}
+
+/* Main section */
+main {
+    width: 100%;
+    flex-grow: 1;
+    /* Allows the main section to take up remaining space */
+    display: flex;
+    flex-direction: column;
 }
 
 /* Sidebar */
@@ -26,56 +37,60 @@ aside {
     max-width: 20%;
     height: 67vh;
     background-color: #fff;
-    padding: 0; /* Remove padding to ensure full width */
+    padding: 0;
     margin-right: 16px;
     margin-top: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    /* Make sure bottom section stays visible */
+    transition: width 0.3s ease-in-out;
 }
 
 .sidebar-top {
     background-color: #616161;
     padding: 10px;
     border-radius: 8px 8px 0 0;
-    width: 100%; /* Ensures full width */
     text-align: center;
     color: white;
+    font-size: 1.5rem;
+    /* Larger font for sidebar title */
 }
 
 .sidebar-bot {
     background-color: #616161;
-    height: 50px; /* Adjust the bottom height as needed */
+    height: 50px;
     width: 100%;
-    border-radius: 0;
+    padding: 10px;
+    /* Ensure padding for bottom section */
+    box-sizing: border-box;
+    text-align: center;
+    color: white;
+    font-size: 1rem;
 }
 
 aside ul {
     list-style: none;
     padding: 0;
     margin: 0;
-    width: 100%; /* Ensure full width */
+    width: 100%;
+    /* Ensure full width */
     flex-grow: 1;
+    overflow-y: auto;
+    /* Enable scrolling if the content exceeds the height */
 }
 
-aside hr {
-    margin: 2px;
-    border: none;
-    border-top: 1px solid #ccc;
-}
-
-/* Links */
 .location-link {
     color: black;
     font-size: large;
     display: block;
-    padding-top: 10px;
-    padding-left: 15px;
-    padding-bottom: 0px;
+    padding: 10px 15px;
+    /* More padding for touch devices */
     text-decoration: none;
     width: 100%;
-    line-height: 26px;
+    line-height: 15px;
 }
 
 /* Sidebar links */
@@ -96,7 +111,7 @@ aside ul a:hover {
 .property-grid {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    grid-template-rows: repeat(3, 1fr);
+    grid-template-rows: repeat(auto-fill, minmax(320px, 1fr));
     gap: 10px;
     margin-top: 10px;
     flex-grow: 1;
@@ -211,31 +226,34 @@ aside ul a:hover {
     }
 }
 
-/* Responsive Sidebar */
-@media screen and (max-width: 1024px) {
-    aside {
-        max-width: 30%; /* Increase sidebar width on medium-sized screens */
-    }
-}
-
+/* Responsive adjustments */
 @media screen and (max-width: 768px) {
     aside {
-        max-width: 40%; /* Further increase sidebar width for tablet screens */
+        max-width: 90%;
+        margin-right: 0;
+        margin-bottom: 24px;
+    }
+
+    .sidebar-top,
+    .sidebar-bot {
+        font-size: 1.25rem;
+        /* Adjust title and bottom section font size */
+    }
+
+    .location-link {
+        font-size: 1rem;
+        /* Reduce link text size */
     }
 }
 
-@media screen and (max-width: 600px) {
-    .container {
-        flex-direction: column; /* Stack sidebar and content vertically */
-    }
-
+@media screen and (max-width: 480px) {
     aside {
-        width: 100%; /* Sidebar takes full width on small screens */
-        margin-right: 0; /* Remove margin to fit on smaller screens */
-        margin-bottom: 24px; /* Add space below sidebar */
+        max-width: 100%;
+        margin-right: 0;
     }
 
-    main {
-        width: 100%; /* Ensure main content takes full width */
+    .location-link {
+        font-size: 0.9rem;
+        /* Further reduce text size on small devices */
     }
 }
