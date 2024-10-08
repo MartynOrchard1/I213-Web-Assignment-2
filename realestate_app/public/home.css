@@ -9,6 +9,8 @@ body {
     min-height: 100vh;
 }
 
+
+/* TODO: REMOVE THE EMPTY WHITESPACE :) */
 .container {
     display: flex;
     justify-content: flex-start;
