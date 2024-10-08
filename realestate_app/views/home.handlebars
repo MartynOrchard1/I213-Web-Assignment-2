@@ -8,11 +8,11 @@
   <title>Home</title>
 </head>
 
-  <section class="hero-section"></section>
-    <h1 class="hero-title">Ready to move?</h1>
-    <p class="hero-subtitle">Find your next home in our extensive database of properties for sale and rent</p>
-    <button class="learn-more-btn">Learn more about us</button>
-  </section>
+<section class="hero-section">
+  <h1 class="hero-title">Ready to move?</h1>
+  <p class="hero-subtitle">Find your next home in our extensive database of properties for sale and rent</p>
+  <button class="learn-more-btn">Learn more about us</button>
+</section>
 
 <body>
 
@@ -20,13 +20,13 @@
     {{!-- Sidebar --}}
     <aside>
       <div class="sidebar-top">
-      <h2>Locations</h2>
+        <h2>Locations</h2>
       </div>
       <ul>
         {{!-- Suburb List --}}
         {{#each suburbs}}
         <a href="/filter/{{suburb}}" class="location-link">{{suburb}}</a>
-        {{#unless @last}} 
+        {{#unless @last}}
         <hr>
         {{/unless}}
         {{/each}}
@@ -50,5 +50,6 @@
   </div>
 
 </body>
+
 
 </html>
