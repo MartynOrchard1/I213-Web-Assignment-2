@@ -1,20 +1,19 @@
-/* General styles */
+/* Generic Styles */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     background-color: #c3f7e3;
-    /* Light mint green background */
 }
 
-/* Navigation bar styles */
+/* Nav Styles */
 .nav-bar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 16px;
-    background-color: #0f766e;
+    background-color: #81e6d9;
     /* Teal color */
     color: white;
 }
@@ -31,7 +30,6 @@ body {
 
 /* Button styling */
 .btn-primary {
-    background-color: #1d4ed8;
     padding: 8px 16px;
     border-radius: 4px;
     color: white;
@@ -39,15 +37,16 @@ body {
 }
 
 .btn-primary:hover {
-    background-color: #2563eb;
+    background-color: red;
 }
 
-/* Main content styling */
+/* Main styling */
 .main-content {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 80vh;
+    padding: 20px;
+    /* height: 100vh; */
 }
 
 .welcome-card {
@@ -56,7 +55,7 @@ body {
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
-    width: 60%;
+    width: 80%;
 }
 
 .welcome-card h2 {
@@ -87,15 +86,6 @@ body {
     text-decoration: underline;
 }
 
-/* Footer styles */
-footer {
-    background-color: #0f766e;
-    /* Teal color */
-    color: white;
-    text-align: center;
-    padding: 16px;
-}
-
 /* Hero Styling */
 .hero-section {
     padding: 32px;
@@ -117,4 +107,13 @@ footer {
 .hero-subtitle {
     font-size: 18px;
     /* text-lg */
+}
+
+/* Footer styles */
+footer {
+    background-color: #0f766e;
+    /* Teal color */
+    color: white;
+    text-align: center;
+    padding: 16px;
 }
