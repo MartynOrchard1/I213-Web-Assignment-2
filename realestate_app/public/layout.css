@@ -5,6 +5,7 @@
     box-sizing: border-box;
 }
 
+
 /* Nav styles */
 .nav-bar {
     background-color: #81e6d9;
@@ -57,35 +58,54 @@
 
 .hero-subtitle {
     font-size: 18px;
-    /* text-lg */
 }
 
 .learn-more-btn {
     margin-top: 16px;
-    /* mt-4 */
     background-color: #ed64a6;
-    /* pink-500 */
     color: white;
     padding: 8px 24px;
-    /* py-2 px-6 */
     border-radius: 8px;
-    /* rounded-lg */
     border: none;
     cursor: pointer;
 }
 
 .learn-more-btn:hover {
     background-color: #d53f8c;
-    /* pink-600 */
 }
 
 footer {
-    margin-top: auto;
     padding: 20px;
-    background-color: #81e6d9;
+    background-color: #83e6d9;
     color: white;
     text-align: center;
     width: 100%;
-    position: relative;
+    position: absolute;
     bottom: 0;
+}
+
+footer {
+    padding: 20px;
+    background-color: #83e6d9;
+    color: white;
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+
+/* Media Query for Tablets and Smaller Devices */
+@media screen and (max-width: 768px) {
+    footer {
+        padding: 15px; /* Reduced padding for smaller screens */
+        font-size: 0.9rem; /* Slightly smaller font size */
+    }
+}
+
+/* Media Query for Mobile Devices */
+@media screen and (max-width: 480px) {
+    footer {
+        padding: 10px; /* Further reduce padding */
+        font-size: 0.8rem; /* Smaller font size for mobile */
+    }
 }
