@@ -8,13 +8,12 @@
 </head>
 
 <body>
-  <main class="login-form max-w-lg mx-auto mt-10 p-4 border rounded shadow-lg">
+<main class="login-form max-w-xl w-full mx-auto mt-10 p-4 border rounded shadow-lg">
     {{#if error}}
     <div class="text-red-500 mb-4">{{error}}</div>
     {{/if}}
 
-    <h2 class="text-2xl font-bold mb-4">Login</h2>
-    <form action="/login" method="POST" class="">
+    <form action="/login" method="POST" class="w-full p-2">
       <div class="mb-4">
         <label for="username" class="block font-bold text-xl">Username:</label>
         <br>
@@ -29,7 +28,8 @@
       <br>
       <button type="submit" class="w-1/4 bg-teal-500 text-white py-2 font-bold text-xl rounded">Sign In</button>
     </form>
-  </main>
+</main>
+
 
   <br>
 

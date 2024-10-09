@@ -5,84 +5,6 @@
     box-sizing: border-box;
 }
 
-
-/* Nav styles */
-.nav-bar {
-    background-color: #81e6d9;
-    padding: 16px;
-    display: flex;
-    justify-content: space-between;
-    color: white;
-}
-
-.nav-left .home-link {
-    font-size: 24px;
-    text-decoration: none;
-    color: white;
-}
-
-.nav-right .login-link {
-    font-size: 24px;
-    text-decoration: none;
-    color: white;
-}
-
-.nav-right .login-link:hover {
-    text-decoration: underline;
-}
-
-/* Hero section styles */
-.hero-section {
-    background-color: #319795;
-    text-align: center;
-    justify-content: center;
-    align-content: center;
-    color: white;
-    height: 140px;
-    padding-bottom: 10px;
-    padding-top: 10px;
-}
-
-.hero-title {
-    font-size: 36px;
-    font-weight: bold;
-    margin-bottom: 8px;
-}
-
-.hero-subtitle {
-    font-size: 18px;
-}
-
-.learn-more-btn {
-    margin-top: 16px;
-    background-color: #ed64a6;
-    color: white;
-    padding: 8px 24px;
-    border-radius: 8px;
-    border: none;
-    cursor: pointer;
-}
-
-.learn-more-btn:hover {
-    background-color: #d53f8c;
-}
-
-footer {
-    padding: 15px;
-    background-color: #83e6d9;
-    color: black;
-    text-align: center;
-    width: 100%;
-    margin-top: auto; 
-}
-
-/* General Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 /* Body styles */
 body {
     font-family: Arial, sans-serif;
@@ -96,20 +18,20 @@ body {
 /* Nav styles */
 .nav-bar {
     background-color: #81e6d9;
-    padding: 16px;
+    padding: 10px;
     display: flex;
     justify-content: space-between;
     color: white;
 }
 
 .nav-left .home-link {
-    font-size: 24px;
+    font-size: 18px;
     text-decoration: none;
     color: white;
 }
 
 .nav-right .login-link {
-    font-size: 24px;
+    font-size: 18px;
     text-decoration: none;
     color: white;
 }
@@ -125,23 +47,21 @@ body {
     justify-content: center;
     align-content: center;
     color: white;
-    padding: 40px 20px;
-    height: auto;
+    padding: 10px;
 }
 
 .hero-title {
-    font-size: 48px;
+    font-size: 24px;
     font-weight: bold;
-    margin-bottom: 16px;
 }
 
 .hero-subtitle {
-    font-size: 24px;
-    margin-bottom: 20px;
+    margin-top: 8px;
+    font-size: 18px;
 }
 
 .learn-more-btn {
-    margin-top: 16px;
+    margin-top: 8px;
     background-color: #ed64a6;
     color: white;
     padding: 12px 30px;
@@ -165,7 +85,7 @@ footer {
 }
 
 /* Responsive Styling for Hero Section */
-@media screen and (max-width: 1024px) {
+/* @media screen and (max-width: 1024px) {
     .hero-title {
         font-size: 36px;
     }
@@ -209,5 +129,4 @@ footer {
     .learn-more-btn {
         padding: 6px 15px;
     }
-}
-
+} */
