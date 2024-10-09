@@ -27,7 +27,8 @@ body {
 }
 
 .links a:hover {
-    text-decoration: underline;
+    text-decoration: wavy;
+    color: blue;
 }
 
 /* Button styling */
@@ -44,10 +45,10 @@ body {
 
 /* Main styling */
 .main-content {
-    flex: 1;  /* Allows the main content to grow and fill the available space */
+    flex: 1;  
     display: flex;
     justify-content: center;
-    align-items: flex-start;  /* Align the welcome card to the top */
+    align-items: flex-start;  
     padding: 20px;
     margin-top: 20px;
 }
@@ -72,21 +73,22 @@ body {
 }
 
 .welcome-card ul {
-    list-style-type: none;
     padding: 0;
 }
 
 .welcome-card ul li {
     margin: 10px 0;
+    margin-left: 12px;
 }
 
 .welcome-card ul li a {
-    color: #1d4ed8;
+    color: black;
     text-decoration: none;
 }
 
 .welcome-card ul li a:hover {
-    text-decoration: underline;
+    text-decoration: wavy;
+    color: blue;
 }
 
 /* Hero Styling */
@@ -109,11 +111,10 @@ body {
 
 /* Footer styles */
 footer {
-    background-color: #0f766e;
+    background-color: #81e6d9;
     color: white;
     text-align: center;
     padding: 16px;
-    /* Ensure footer sticks to the bottom */
     position: relative;
     bottom: 0;
 }

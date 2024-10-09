@@ -6,53 +6,51 @@ body {
     padding: 0;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
 }
 
-
-/* TODO: REMOVE THE EMPTY WHITESPACE :) */
-
+.wrapper {
+    display: flex;
+    justify-content: center;  /* Centers content horizontally */
+    align-items: flex-start;  /* Aligns items to the top */
+    margin: 0 auto;           /* Centers the content-wrapper on the page */
+    gap: 20px;                /* Space between the sidebar and property grid */
+    padding: 20px;            /* Optional padding */
+    width: 100%;
+    box-sizing: border-box;
+}
 
 /* Hero section styles */
 .hero-section {
     padding: 32px;
-    /* p-8 */
     background-color: #319795;
-    /* teal-500 */
     text-align: center;
     color: white;
 }
 
 .hero-title {
-    font-size: 36px;
-    /* text-4xl */
+    font-size: 50px;
     font-weight: bold;
     margin-bottom: 8px;
-    /* mb-2 */
 }
 
 .hero-subtitle {
-    font-size: 18px;
-    /* text-lg */
+    margin-top: 10px;
+    font-size: 30px;
 }
 
 .learn-more-btn {
-    margin-top: 16px;
-    /* mt-4 */
+    margin-top: 20px;
     background-color: #ed64a6;
-    /* pink-500 */
     color: white;
     padding: 8px 24px;
-    /* py-2 px-6 */
     border-radius: 8px;
-    /* rounded-lg */
     border: none;
     cursor: pointer;
+    font-size: 20px;
 }
 
 .learn-more-btn:hover {
     background-color: #d53f8c;
-    /* pink-600 */
 }
 
 .container {
@@ -60,7 +58,6 @@ body {
     justify-content: flex-start;
     align-items: flex-start;
     padding: 20px;
-    max-width: 2000px;
     width: 100%;
     margin: 0;
     box-sizing: border-box;
@@ -89,8 +86,8 @@ aside {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    /* Make sure bottom section stays visible */
     transition: width 0.3s ease-in-out;
+    flex-shrink: 0;
 }
 
 .sidebar-top {
@@ -100,7 +97,6 @@ aside {
     text-align: center;
     color: white;
     font-size: 1.5rem;
-    /* Larger font for sidebar title */
 }
 
 .sidebar-bot {
@@ -108,7 +104,6 @@ aside {
     height: 50px;
     width: 100%;
     padding: 10px;
-    /* Ensure padding for bottom section */
     box-sizing: border-box;
     text-align: center;
     color: white;
@@ -120,10 +115,8 @@ aside ul {
     padding: 0;
     margin: 0;
     width: 100%;
-    /* Ensure full width */
     flex-grow: 1;
     overflow-y: auto;
-    /* Enable scrolling if the content exceeds the height */
 }
 
 .location-link {
@@ -131,7 +124,6 @@ aside ul {
     font-size: large;
     display: block;
     padding: 10px 15px;
-    /* More padding for touch devices */
     text-decoration: none;
     width: 100%;
     line-height: 15px;
@@ -154,8 +146,7 @@ aside ul a:hover {
 /* Property grid */
 .property-grid {
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    grid-template-rows: repeat(auto-fill, minmax(320px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 10px;
     margin-top: 10px;
     flex-grow: 1;

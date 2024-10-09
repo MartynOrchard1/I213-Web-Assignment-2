@@ -19,13 +19,12 @@
 .nav-left .home-link {
     font-size: 24px;
     /* text-2xl */
-    font-weight: bold;
     text-decoration: none;
     color: white;
 }
 
 .nav-right .login-link {
-    font-size: 18px;
+    font-size: 24px;
     /* text-lg */
     text-decoration: none;
     color: white;
@@ -42,7 +41,10 @@
     background-color: #319795;
     /* teal-500 */
     text-align: center;
+    justify-content: center;
+    align-content: center;
     color: white;
+    height: 276px;
 }
 
 .hero-title {
@@ -84,4 +86,6 @@ footer {
     color: white;
     text-align: center;
     width: 100%;
+    position: relative;
+    bottom: 0;
 }
