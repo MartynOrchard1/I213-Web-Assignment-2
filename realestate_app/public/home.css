@@ -74,8 +74,7 @@ main {
 
 /* Sidebar */
 aside {
-    width: 80%;
-    max-width: 20%;
+    width: 10%;
     height: 67vh;
     background-color: #fff;
     padding: 0;
@@ -202,7 +201,7 @@ aside ul a:hover {
 /* Responsive adjustments */
 @media screen and (max-width: 768px) {
     aside {
-        max-width: 90%;
+        width: 30%;
         margin-right: 0;
         margin-bottom: 24px;
     }
@@ -214,23 +213,48 @@ aside ul a:hover {
     .property-grid {
         grid-template-columns: repeat(2, 1fr);
     }
+
+    .hero-title {
+        font-size: 36px;
+    }
+
+    .hero-subtitle {
+        font-size: 22px;
+    }
+
+    .sidebar-top,
+    .sidebar-bot {
+        font-size: 1.25rem;
+    }
+
+    .location-link {
+        font-size: 1rem;
+    }
 }
 
 @media screen and (max-width: 480px) {
+    aside, main {
+        width: 100%;
+    }
+
     .property-grid {
         grid-template-columns: 1fr;
     }
 
-    aside {
-        max-width: 100%;
+    .hero-title {
+        font-size: 28px;
     }
 
-    main {
-        max-width: 100%;
+    .hero-subtitle {
+        font-size: 18px;
+    }
+
+    .location-link {
+        font-size: 0.9rem;
     }
 }
 
-/* Responsive grid columns */
+/* Grid column changes for different screen sizes */
 @media screen and (min-width: 600px) {
     .property-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -258,37 +282,5 @@ aside ul a:hover {
 @media screen and (min-width: 1200px) {
     .property-grid {
         grid-template-columns: repeat(7, 1fr);
-    }
-}
-
-/* Responsive adjustments */
-@media screen and (max-width: 768px) {
-    aside {
-        max-width: 90%;
-        margin-right: 0;
-        margin-bottom: 24px;
-    }
-
-    .sidebar-top,
-    .sidebar-bot {
-        font-size: 1.25rem;
-        /* Adjust title and bottom section font size */
-    }
-
-    .location-link {
-        font-size: 1rem;
-        /* Reduce link text size */
-    }
-}
-
-@media screen and (max-width: 480px) {
-    aside {
-        max-width: 100%;
-        margin-right: 0;
-    }
-
-    .location-link {
-        font-size: 0.9rem;
-        /* Further reduce text size on small devices */
     }
 }
