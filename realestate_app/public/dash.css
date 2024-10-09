@@ -5,6 +5,9 @@ body {
     padding: 0;
     box-sizing: border-box;
     background-color: #c3f7e3;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;  /* Ensure body fills the viewport height */
 }
 
 /* Nav Styles */
@@ -14,7 +17,6 @@ body {
     align-items: center;
     padding: 16px;
     background-color: #81e6d9;
-    /* Teal color */
     color: white;
 }
 
@@ -42,11 +44,12 @@ body {
 
 /* Main styling */
 .main-content {
+    flex: 1;  /* Allows the main content to grow and fill the available space */
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;  /* Align the welcome card to the top */
     padding: 20px;
-    /* height: 100vh; */
+    margin-top: 20px;
 }
 
 .welcome-card {
@@ -54,8 +57,8 @@ body {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
     width: 80%;
+    margin-top: 20px;
 }
 
 .welcome-card h2 {
@@ -89,31 +92,28 @@ body {
 /* Hero Styling */
 .hero-section {
     padding: 32px;
-    /* p-8 */
     background-color: #319795;
-    /* teal-500 */
     text-align: center;
     color: white;
 }
 
 .hero-title {
     font-size: 36px;
-    /* text-4xl */
     font-weight: bold;
     margin-bottom: 8px;
-    /* mb-2 */
 }
 
 .hero-subtitle {
     font-size: 18px;
-    /* text-lg */
 }
 
 /* Footer styles */
 footer {
     background-color: #0f766e;
-    /* Teal color */
     color: white;
     text-align: center;
     padding: 16px;
+    /* Ensure footer sticks to the bottom */
+    position: relative;
+    bottom: 0;
 }
