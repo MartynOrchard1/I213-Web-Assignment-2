@@ -9,9 +9,7 @@
 /* Nav styles */
 .nav-bar {
     background-color: #81e6d9;
-    /* teal-200 */
     padding: 16px;
-    /* p-4 */
     display: flex;
     justify-content: space-between;
     color: white;
@@ -19,14 +17,12 @@
 
 .nav-left .home-link {
     font-size: 24px;
-    /* text-2xl */
     text-decoration: none;
     color: white;
 }
 
 .nav-right .login-link {
     font-size: 24px;
-    /* text-lg */
     text-decoration: none;
     color: white;
 }
@@ -37,23 +33,20 @@
 
 /* Hero section styles */
 .hero-section {
-    padding: 32px;
-    /* p-8 */
     background-color: #319795;
-    /* teal-500 */
     text-align: center;
     justify-content: center;
     align-content: center;
     color: white;
-    height: 276px;
+    height: 140px;
+    padding-bottom: 10px;
+    padding-top: 10px;
 }
 
 .hero-title {
     font-size: 36px;
-    /* text-4xl */
     font-weight: bold;
     margin-bottom: 8px;
-    /* mb-2 */
 }
 
 .hero-subtitle {
@@ -75,37 +68,146 @@
 }
 
 footer {
-    padding: 20px;
+    padding: 15px;
     background-color: #83e6d9;
-    color: white;
+    color: black;
     text-align: center;
     width: 100%;
-    position: absolute;
-    bottom: 0;
+    margin-top: auto; 
 }
 
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Nav styles */
+.nav-bar {
+    background-color: #81e6d9;
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+}
+
+.nav-left .home-link {
+    font-size: 24px;
+    text-decoration: none;
+    color: white;
+}
+
+.nav-right .login-link {
+    font-size: 24px;
+    text-decoration: none;
+    color: white;
+}
+
+.nav-right .login-link:hover {
+    text-decoration: underline;
+}
+
+/* Hero section styles */
+.hero-section {
+    background-color: #319795;
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+    color: white;
+    padding: 40px 20px;
+    height: auto;
+}
+
+.hero-title {
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 16px;
+}
+
+.hero-subtitle {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.learn-more-btn {
+    margin-top: 16px;
+    background-color: #ed64a6;
+    color: white;
+    padding: 12px 30px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+}
+
+.learn-more-btn:hover {
+    background-color: #d53f8c;
+}
+
+/* Footer */
 footer {
-    padding: 20px;
+    padding: 15px;
     background-color: #83e6d9;
-    color: white;
+    color: black;
     text-align: center;
     width: 100%;
-    position: absolute;
-    bottom: 0;
+    margin-top: auto; /* Ensures footer stays at the bottom */
 }
 
-/* Media Query for Tablets and Smaller Devices */
+/* Responsive Styling for Hero Section */
+@media screen and (max-width: 1024px) {
+    .hero-title {
+        font-size: 36px;
+    }
+
+    .hero-subtitle {
+        font-size: 20px;
+    }
+
+    .learn-more-btn {
+        padding: 10px 25px;
+    }
+}
+
 @media screen and (max-width: 768px) {
-    footer {
-        padding: 15px; /* Reduced padding for smaller screens */
-        font-size: 0.9rem; /* Slightly smaller font size */
+    .hero-title {
+        font-size: 32px;
+    }
+
+    .hero-subtitle {
+        font-size: 18px;
+    }
+
+    .learn-more-btn {
+        padding: 8px 20px;
     }
 }
 
-/* Media Query for Mobile Devices */
 @media screen and (max-width: 480px) {
-    footer {
-        padding: 10px; /* Further reduce padding */
-        font-size: 0.8rem; /* Smaller font size for mobile */
+    .hero-section {
+        padding: 20px 10px;
+    }
+
+    .hero-title {
+        font-size: 28px;
+    }
+
+    .hero-subtitle {
+        font-size: 16px;
+    }
+
+    .learn-more-btn {
+        padding: 6px 15px;
     }
 }
+
