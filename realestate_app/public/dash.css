@@ -1,0 +1,120 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #c3f7e3;
+    /* Light mint green background */
+}
+
+/* Navigation bar styles */
+.nav-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    background-color: #0f766e;
+    /* Teal color */
+    color: white;
+}
+
+.links a {
+    margin-right: 16px;
+    color: white;
+    text-decoration: none;
+}
+
+.links a:hover {
+    text-decoration: underline;
+}
+
+/* Button styling */
+.btn-primary {
+    background-color: #1d4ed8;
+    padding: 8px 16px;
+    border-radius: 4px;
+    color: white;
+    text-decoration: none;
+}
+
+.btn-primary:hover {
+    background-color: #2563eb;
+}
+
+/* Main content styling */
+.main-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+.welcome-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 60%;
+}
+
+.welcome-card h2 {
+    font-size: 1.75rem;
+    margin-bottom: 10px;
+}
+
+.welcome-card p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+.welcome-card ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.welcome-card ul li {
+    margin: 10px 0;
+}
+
+.welcome-card ul li a {
+    color: #1d4ed8;
+    text-decoration: none;
+}
+
+.welcome-card ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Footer styles */
+footer {
+    background-color: #0f766e;
+    /* Teal color */
+    color: white;
+    text-align: center;
+    padding: 16px;
+}
+
+/* Hero Styling */
+.hero-section {
+    padding: 32px;
+    /* p-8 */
+    background-color: #319795;
+    /* teal-500 */
+    text-align: center;
+    color: white;
+}
+
+.hero-title {
+    font-size: 36px;
+    /* text-4xl */
+    font-weight: bold;
+    margin-bottom: 8px;
+    /* mb-2 */
+}
+
+.hero-subtitle {
+    font-size: 18px;
+    /* text-lg */
+}

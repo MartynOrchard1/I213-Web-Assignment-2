@@ -1,27 +1,47 @@
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/dash.css" />
-    <title>Dashboard</title>
-  </head>
-  <body>
 
-    <header>
-      <nav class="flex justify-between p-4 bg-blue-500 text-white">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/dash.css" />
+  <title>Dashboard</title>
+</head>
+
+<body>
+  <header>
+    <nav class="nav-bar">
+      <div class="links">
+
         <a href="/">Home</a>
         <a href="/dashboard">Dashboard</a>
-        <a href="/login" class="btn btn-primary">Logout</a>
-      </nav>
-    </header>
 
-    <main class="dashboard p-8">
-      <h2 class="text-3xl font-bold">Dashboard</h2>
-      <p>Welcome to the dashboard</p>
-    </main>
+      </div>
 
-    <footer class="p-4 bg-blue-500 text-white">
-      &copy; 2024 Real Estate Listings | Martyn James Orchard | 21356032
-    </footer>
-  </body>
+      <a href="/login" class="btn-primary">Logout</a>
+    </nav>
+  </header>
+
+    <section class="hero-section">
+    <h1 class="hero-title">Ready to move?</h1>
+    <p class="hero-subtitle">Find your next home in our extensive database of properties for sale and rent</p>
+  </section>
+
+  <main class="main-content">
+    <div class="welcome-card">
+      <h2>Welcome to your Dashboard, Admin!</h2>
+      <p>Manage your properties and account</p>
+      <ul>
+        <li><a href="#">View your properties</a></li>
+        <li><a href="#">Manage your account</a></li>
+        <li><a href="#">Update your settings</a></li>
+      </ul>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2024 Real Estate Listings, All rights reserved.</p>
+  </footer>
+</body>
+
 </html>
