@@ -109,12 +109,12 @@ app.get("/filter/:suburb", async (req, res) => {
         // If suburb is "All", show all properties
         if (suburbName === "All") {
             properties = await Property.findAll({
-                limit: 21
+                limit: 21 // Property Limit Increase/Decrease as needed
             });
         } else {
             properties = await Property.findAll({
                 where: { suburb: suburbName },
-                limit: 21
+                limit: 21 // Property Limit Increase/Decrease as needed
             });
         }
 
@@ -128,7 +128,7 @@ app.get("/filter/:suburb", async (req, res) => {
         const suburbs = await Property.findAll({
             attributes: [[Sequelize.fn('DISTINCT', Sequelize.col('suburb')), 'suburb']],
             order: [['suburb', 'ASC']],  // Order alphabetically
-            limit: 21
+            limit: 21 // Property Limit Increase/Decrease as needed
         });
         const plainSuburbs = [{ suburb: 'All' }, ...suburbs.map(suburb => suburb.get({ plain: true }))];
         
@@ -164,8 +164,8 @@ app.post('/login', (req, res) => {
     } else {
         res.render('login', {
             layout: "main",  // Use main.handlebars as a template for nav, hero, footer
-            title: "Login",
-            error: "Invalid Credentials. Please try again."
+            title: "Login", // Page Title
+            error: "Invalid Credentials. Please try again." // Error Message
         });
     }
 });
