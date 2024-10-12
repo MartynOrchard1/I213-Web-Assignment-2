@@ -1,4 +1,4 @@
-/* Css For home.css */
+/* CSS For home.css */
 html, body {
     margin: 0;
     padding: 0;
@@ -7,7 +7,7 @@ html, body {
 }
 
 body {
-    background-color: #e6fffa;
+    background-color: #CCFBF1;
     font-family: Arial, sans-serif;
     flex-grow: 1;
 }
@@ -35,7 +35,6 @@ body {
     flex-grow: 1;
 }
 
-/* Main section */
 main {
     width: 100%;
     display: flex;
@@ -59,7 +58,7 @@ aside {
 }
 
 .sidebar-top {
-    background-color: #616161;
+    background-color: #9CA3AF;
     padding: 10px;
     border-radius: 8px 8px 0 0;
     text-align: center;
@@ -68,7 +67,7 @@ aside {
 }
 
 .sidebar-bot {
-    background-color: #616161;
+    background-color: #9CA3AF;
     height: 35px;
     width: 100%;
     padding: 10px;
@@ -94,7 +93,7 @@ aside ul {
     padding: 10px 15px;
     text-decoration: none;
     width: 100%;
-    line-height: 16.5px;
+    line-height: 16.5px; /* Space inbetween each suburb */
 }
 
 aside ul a {
@@ -123,7 +122,7 @@ aside ul a:hover {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-color: #616161;
+    background-color: #374151;
     color: #fff;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);

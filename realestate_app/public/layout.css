@@ -13,7 +13,7 @@ body {
 }
 
 .nav-bar {
-    background-color: #81e6d9;
+    background-color: #99F6E4;
     padding: 10px;
     display: flex;
     justify-content: space-between;
@@ -37,7 +37,7 @@ body {
 }
 
 .hero-section {
-    background-color: #319795;
+    background-color: #0D9488;
     text-align: center;
     justify-content: center;
     align-content: center;
@@ -72,7 +72,7 @@ body {
 /* Footer */
 footer {
     padding: 15px;
-    background-color: #83e6d9;
+    background-color: #99F6E4;
     color: black;
     text-align: center;
     width: 100%;

@@ -20,7 +20,7 @@
           {{!-- Suburb List --}}
           {{#each suburbs}}
           <a href="/filter/{{suburb}}" class="location-link">{{suburb}}</a>
-          {{#unless @last}}
+          {{#unless @last}} <!-- This makes it so that it doesn't display a <hr> on the last subrub item !-->
           <hr>
           {{/unless}}
           {{/each}}
