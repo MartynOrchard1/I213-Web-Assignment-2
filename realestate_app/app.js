@@ -47,7 +47,8 @@ const Property = sequelize.define('Property', {
     active: { type: DataTypes.BOOLEAN, allowNull: false },
     created_at: { type: DataTypes.DATE, defaultValue: Sequelize.NOW },
     updated_at: { type: DataTypes.DATE, defaultValue: Sequelize.NOW }
-}, {
+}, 
+{
     tableName: 'properties',
     timestamps: false
 });
@@ -117,7 +118,6 @@ app.get("/filter/:suburb", async (req, res) => {
 
         const plainProperties = properties.map(prop => {
             const property = prop.get({ plain: true });
-            // Assuming images are stored in the 'public/images/houses/' directory
             property.image_url = `/images/houses/${property.image_name}`;
             return property;
         });
@@ -173,11 +173,10 @@ app.get('/dashboard', isAuthenticated, (req, res) => {
 });
 
 // Error-handling middleware
-app.use((err, req, res, next) => {
-    console.error(err.stack);
+app.use((err, res) => {
+    console.error(err);
     res.status(500).send('Something went wrong!');
 });
-
 
 
 // Start the server
