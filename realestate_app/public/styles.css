@@ -1,4 +1,6 @@
 /* Ignore vscode issues  */
+
+/* Setup For Tailwind */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

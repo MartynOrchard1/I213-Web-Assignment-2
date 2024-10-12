@@ -69,7 +69,7 @@ app.get("/", async (req, res) => {
         const properties = await Property.findAll({
             where: { active: true },  // Only fetch active properties
             order: sequelize.random(), // Select random properties
-            limit: 21 // Limit to 21 properties
+            limit: 21 // Property limit, !!if you wish to expand the grid you have to also expand the limit!!
         });
   
         // Image setup
@@ -86,9 +86,10 @@ app.get("/", async (req, res) => {
             limit: 18 // Suburb Limit - edit this as needed
         });
         const plainSuburbs = suburbs.map(suburb => suburb.get({ plain: true }));
-  
+        
+        // Render the page
         res.render("home", {
-            layout: "main",
+            layout: "main", // Use main.handlebars as a template for nav, hero, footer
             title: "Home",
             properties: plainProperties, // Pass properties with image URLs
             suburbs: plainSuburbs
@@ -130,34 +131,39 @@ app.get("/filter/:suburb", async (req, res) => {
             limit: 21
         });
         const plainSuburbs = [{ suburb: 'All' }, ...suburbs.map(suburb => suburb.get({ plain: true }))];
-
+        
+        // Render the page
         res.render("home", {
-            layout: "main",
+            layout: "main", // Use main.handlebars as a template for nav, hero, footer
             title: "Home",
             properties: plainProperties,
             suburbs: plainSuburbs
         });
     } catch (error) { // If there's an error do this...
-        console.error('Error filtering properties:', error);
+        console.error('Error filtering properties: ', error);
         res.status(500).send('An error occurred while filtering properties');
     }
 });
 
 // Route: Login Page
 app.get('/login', (req, res) => {
-    res.render('login', { layout: "main", title: "Login" });
+    res.render('login', 
+        { 
+            layout: "main", // Use main.handlebars as a template for nav, hero, footer
+            title: "Login" 
+        });
 });
 
 // POST Route: Handle Login
 app.post('/login', (req, res) => {
     const { username, password } = req.body;
 
-    if (username === 'admin' && password === 'password') {
+    if (username === 'admin' && password === 'password') { // You can set a customer username and password here
         req.session.user = username;
         res.redirect('/dashboard');
     } else {
         res.render('login', {
-            layout: "main", 
+            layout: "main",  // Use main.handlebars as a template for nav, hero, footer
             title: "Login",
             error: "Invalid Credentials. Please try again."
         });
