@@ -1,23 +1,23 @@
 // Import necessary modules
 const express = require("express");
-const session = require('express-session'); // For session handling (authentication)
-const { engine } = require("express-handlebars"); // Handlebars templating engine
-const path = require('path'); // Utility to handle file paths
-const { Sequelize, DataTypes } = require('sequelize'); // Sequelize ORM
+const session = require('express-session'); 
+const { engine } = require("express-handlebars"); 
+const path = require('path'); 
+const { Sequelize, DataTypes } = require('sequelize');
 
-// Initialize Express app and define the port
+// Initialize Express
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Set up Handlebars as the view engine with the path to partials
+// Handlebars setup
 app.engine("handlebars", engine({ partialsDir: path.join(__dirname, "views/partials") }));
 app.set("view engine", "handlebars");
 app.set("views", path.join(__dirname, "views"));
 
-// Serve static files (like CSS, JS) from the "public" directory
+// Static File setup (public folder)
 app.use(express.static(path.join(__dirname, "public")));
 
-// Middleware to parse URL-encoded and JSON request bodies
+// JSON/URL Middleware
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
@@ -72,17 +72,18 @@ app.get("/", async (req, res) => {
             limit: 21 // Limit to 21 properties
         });
   
+        // Image setup
         const plainProperties = properties.map(prop => {
             const property = prop.get({ plain: true });
             property.image_url = `/images/houses/${property.image_name}`; // Image path
             return property;
         });
   
-        // Fetch distinct suburbs for the sidebar
+        // Fetch suburbs for the sidebar
         const suburbs = await Property.findAll({
             attributes: [[Sequelize.fn('DISTINCT', Sequelize.col('suburb')), 'suburb']],
-            where: { active: true }, // Only active properties
-            limit: 18 // Limit to 18 suburbs
+            where: { active: true }, // Only active properties displayed | if field has in DB has active set to 0 then it will not display on this website. If active is set to 1 it will display 
+            limit: 18 // Suburb Limit - edit this as needed
         });
         const plainSuburbs = suburbs.map(suburb => suburb.get({ plain: true }));
   
@@ -92,7 +93,7 @@ app.get("/", async (req, res) => {
             properties: plainProperties, // Pass properties with image URLs
             suburbs: plainSuburbs
         });
-    } catch (error) {
+    } catch (error) { // If there's an error do this...
         console.error('Error fetching properties:', error);
         res.status(500).send('An error occurred while fetching properties');
     }
@@ -136,7 +137,7 @@ app.get("/filter/:suburb", async (req, res) => {
             properties: plainProperties,
             suburbs: plainSuburbs
         });
-    } catch (error) {
+    } catch (error) { // If there's an error do this...
         console.error('Error filtering properties:', error);
         res.status(500).send('An error occurred while filtering properties');
     }
