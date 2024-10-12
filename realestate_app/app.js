@@ -30,8 +30,6 @@ app.use(session({
 
 // Database connection
 const sequelize = require('./db');
-const { title } = require("process");
-const { error } = require("console");
 
 // Define Property model
 const Property = sequelize.define('Property', {
