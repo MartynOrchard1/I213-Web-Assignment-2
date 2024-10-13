@@ -4,6 +4,7 @@ const session = require('express-session');
 const { engine } = require("express-handlebars"); 
 const path = require('path'); 
 const { Sequelize, DataTypes } = require('sequelize');
+const bcrypt = require('bcrypt');
 
 // Initialize Express
 const app = express();
@@ -25,11 +26,20 @@ app.use(express.json());
 app.use(session({
     secret: 'mySecretKey',
     resave: false,
-    saveUninitialized: true
+    saveUninitialized: true,
+    cookie: {
+        secure: true,  // Ensures cookies are only sent over HTTPS
+        httpOnly: true,  // Prevents client-side JS from accessing the cookie
+        maxAge: 24 * 60 * 60 * 1000  // 1 day expiration
+    }
 }));
 
 // Database connection
 const sequelize = require('./db');
+
+// Helmet
+const helmet = require('helmet');
+app.use(helmet());
 
 // Define Property model
 const Property = sequelize.define('Property', {
@@ -156,19 +166,39 @@ app.get('/login', (req, res) => {
 
 // POST Route: Login
 app.post('/login', (req, res) => {
-    const { username, password } = req.body;
+    try {
+        console.log('Received POST request:', req.body);  // Log request body for debugging
 
-    if (username === 'admin' && password === 'password') { // You can set a custom username and password here
-        req.session.user = username;
-        res.redirect('/dashboard');
-    } else {
-        res.render('login', {
-            layout: "main",  // Use main.handlebars as a template for nav, hero, footer
-            title: "Login", // Page Title
-            error: "Invalid Credentials. Please try again." // Error Message
-        });
+        const { username, password } = req.body;
+        if (username === 'admin' && password === 'password') {
+            req.session.user = username;
+            return res.redirect('/dashboard');
+        } else {
+            return res.status(401).render('login', {
+                layout: "main",
+                title: "Login",
+                error: "Invalid Credentials. Please try again."
+            });
+        }
+    } catch (error) {
+        console.error('Login error:', error);  // Log error details
+        res.status(500).send('Internal Server Error');
     }
 });
+
+
+app.use((req, res, next) => {
+    res.set('Cache-Control', 'no-store');
+    next();
+});
+
+app.use((req, res, next) => {
+    if (req.headers['x-forwarded-proto'] !== 'https') {
+        return res.redirect(`https://${req.headers.host}${req.url}`);
+    }
+    next();
+});
+
 
 // Protected Route: Dashboard
 app.get('/dashboard', isAuthenticated, (req, res) => {
