@@ -1,5 +1,6 @@
 /* Ignore vscode issues  */
-/* Tailwind Output File */
+
+/* Setup For Tailwind */
 
 /* ! tailwindcss v3.4.10 | MIT License | https://tailwindcss.com  */
 
@@ -633,6 +634,11 @@ video {
 .bg-teal-500 {
   --tw-bg-opacity: 1;
   background-color: rgb(20 184 166 / var(--tw-bg-opacity));
+}
+
+.bg-white {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
 .p-2 {
