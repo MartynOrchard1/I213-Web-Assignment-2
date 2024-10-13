@@ -1,4 +1,4 @@
-// Import necessary modules
+// Import Statements
 const express = require("express");
 const session = require('express-session'); 
 const { engine } = require("express-handlebars"); 
@@ -90,8 +90,8 @@ app.get("/", async (req, res) => {
         // Render the page
         res.render("home", {
             layout: "main", // Use main.handlebars as a template for nav, hero, footer
-            title: "Home",
-            properties: plainProperties, // Pass properties with image URLs
+            title: "Home", // Page Title
+            properties: plainProperties, 
             suburbs: plainSuburbs
         });
     } catch (error) { // If there's an error do this...
@@ -135,9 +135,9 @@ app.get("/filter/:suburb", async (req, res) => {
         // Render the page
         res.render("home", {
             layout: "main", // Use main.handlebars as a template for nav, hero, footer
-            title: "Home",
-            properties: plainProperties,
-            suburbs: plainSuburbs
+            title: "Home", // Title of page
+            properties: plainProperties, 
+            suburbs: plainSuburbs 
         });
     } catch (error) { // If there's an error do this...
         console.error('Error filtering properties: ', error);
@@ -150,15 +150,15 @@ app.get('/login', (req, res) => {
     res.render('login', 
         { 
             layout: "main", // Use main.handlebars as a template for nav, hero, footer
-            title: "Login" 
+            title: "Login" // Page Title
         });
 });
 
-// POST Route: Handle Login
+// POST Route: Login
 app.post('/login', (req, res) => {
     const { username, password } = req.body;
 
-    if (username === 'admin' && password === 'password') { // You can set a customer username and password here
+    if (username === 'admin' && password === 'password') { // You can set a custom username and password here
         req.session.user = username;
         res.redirect('/dashboard');
     } else {
@@ -173,15 +173,15 @@ app.post('/login', (req, res) => {
 // Protected Route: Dashboard
 app.get('/dashboard', isAuthenticated, (req, res) => {
     res.render('dashboard', {
-        user: req.session.user,
-        layout: false,
-        title: "Dashboard"
+        user: req.session.user, 
+        layout: false, // No layout
+        title: "Dashboard" // Page Title
     });
 });
 
 // Error-handling middleware
 app.use((err, res) => {
-    console.error(err);
+    console.error(err); // Error message
     res.status(500).send('Something went wrong!');
 });
 
@@ -190,9 +190,9 @@ app.use((err, res) => {
 app.listen(PORT, async () => {
     try {
         await sequelize.authenticate();
-        console.log("Database connected successfully");
+        console.log("Database connected successfully"); // Successfull connection
     } catch (error) {
-        console.error("Unable to connect to the database:", error);
+        console.error("Unable to connect to the database:", error); // Err
     }
-    console.log(`Server is running on http://localhost:${PORT}`);
+    console.log(`Server is running on http://localhost:${PORT}`); // Logs the server running, the address, and port
 });
