@@ -12,6 +12,7 @@
   "dependencies": {
     "@handlebars/allow-prototype-access": "^1.0.5",
     "bcrypt": "^5.1.1",
+    "body-parser": "^1.20.3",
     "express": "^4.19.2",
     "express-handlebars": "^8.0.1",
     "helmet": "^8.0.0",

@@ -5,6 +5,7 @@ const { engine } = require("express-handlebars");
 const path = require('path'); 
 const { Sequelize, DataTypes } = require('sequelize');
 const bcrypt = require('bcrypt');
+const bodyParser = require('body-parser');
 
 // Initialize Express
 const app = express();
@@ -22,17 +23,35 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
+// Middleware setup
+// app.use(session({
+//     secret: 'your-secret-key',
+//     resave: false,
+//     saveUninitialized: true
+// }));
+
+app.use(express.urlencoded({ extended: false })); // Handles URL-encoded data
+app.use(express.json()); // Handles JSON data
+
+// Pre-hash the password (synchronously for simplicity)
+const username = 'admin';
+const plainPassword = 'password';
+const hashedPassword = bcrypt.hashSync(plainPassword, 10);
+
+console.log(`Hashed Password: ${hashedPassword}`); // Debugging log
+
 // Session middleware to manage user sessions
 app.use(session({
     secret: 'mySecretKey',
     resave: false,
-    saveUninitialized: true,
-    cookie: {
-        secure: true,  // Ensures cookies are only sent over HTTPS
-        httpOnly: true,  // Prevents client-side JS from accessing the cookie
-        maxAge: 24 * 60 * 60 * 1000  // 1 day expiration
+    saveUninitialized: false,
+    cookie: { 
+        secure: false,   // Use true if you're serving over HTTPS (in production)
+        httpOnly: true,  // Prevents client-side access to cookies
+        sameSite: 'lax'  // Helps with third-party cookie handling
     }
 }));
+
 
 // Database connection
 const sequelize = require('./db');
@@ -65,12 +84,15 @@ const Property = sequelize.define('Property', {
 
 // Middleware to check if a user is authenticated
 const isAuthenticated = (req, res, next) => {
+    console.log('Session:', req.session); // Log session details
     if (req.session.user) {
-        next();
+        next(); // User is authenticated
     } else {
-        res.redirect('/login');
+        console.log('User is not authenticated, redirecting to login.'); // Debug log
+        res.redirect('/login'); // Redirect to login
     }
 };
+
 
 // Route: Home Page
 app.get("/", async (req, res) => {
@@ -165,49 +187,62 @@ app.get('/login', (req, res) => {
 });
 
 // POST Route: Login
-app.post('/login', (req, res) => {
-    try {
-        console.log('Received POST request:', req.body);  // Log request body for debugging
+app.post('/login', async (req, res) => {
+    console.log('Request Body:', req.body); // Log the request body for debugging
 
-        const { username, password } = req.body;
-        if (username === 'admin' && password === 'password') {
-            req.session.user = username;
-            return res.redirect('/dashboard');
-        } else {
-            return res.status(401).render('login', {
-                layout: "main",
-                title: "Login",
-                error: "Invalid Credentials. Please try again."
-            });
+    const { username: enteredUsername, password: enteredPassword } = req.body;
+
+    try {
+        // Check if the username matches
+        if (enteredUsername === username) {
+            const isMatch = await bcrypt.compare(enteredPassword, hashedPassword);
+
+            if (isMatch) {
+                req.session.user = enteredUsername;
+                console.log('Redirecting to dashboard...');
+                return res.redirect('/dashboard');  
+            }
         }
+
+        console.log('Invalid login attempt for user:', enteredUsername);
+        return res.status(401).render('login', {
+            layout: "main",
+            title: "Login",
+            error: "Invalid Credentials. Please try again."
+        });
+
     } catch (error) {
-        console.error('Login error:', error);  // Log error details
+        console.error('Error during login:', error);
         res.status(500).send('Internal Server Error');
     }
 });
 
 
-app.use((req, res, next) => {
-    res.set('Cache-Control', 'no-store');
-    next();
-});
 
-app.use((req, res, next) => {
-    if (req.headers['x-forwarded-proto'] !== 'https') {
-        return res.redirect(`https://${req.headers.host}${req.url}`);
-    }
-    next();
-});
+
+// app.use((req, res, next) => {
+//     res.set('Cache-Control', 'no-store');
+//     next();
+// });
+
+// app.use((req, res, next) => {
+//     if (req.headers['x-forwarded-proto'] !== 'https') {
+//         return res.redirect(`https://${req.headers.host}${req.url}`);
+//     }
+//     next();
+// });
 
 
 // Protected Route: Dashboard
 app.get('/dashboard', isAuthenticated, (req, res) => {
+    console.log('Rendering dashboard for user:', req.session.user); // Debug log
     res.render('dashboard', {
-        user: req.session.user, 
-        layout: false, // No layout
-        title: "Dashboard" // Page Title
+        user: req.session.user,
+        layout: false,
+        title: "Dashboard"
     });
 });
+
 
 // Error-handling middleware
 app.use((err, res) => {
