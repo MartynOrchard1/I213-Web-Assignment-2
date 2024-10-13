@@ -27,6 +27,11 @@ body {
     color: white;
 }
 
+.nav-left .home-link:hover {
+    text-decoration: wavy;
+    color: blue;
+}
+
 .nav-right .login-link {
     font-size: 18px;
     text-decoration: none;
@@ -34,7 +39,8 @@ body {
 }
 
 .nav-right .login-link:hover {
-    text-decoration: underline;
+    text-decoration: wavy;
+    color: blue;
 }
 
 .hero-section {
