@@ -2,13 +2,6 @@ const express = require("express");
 const router = express.Router();
 const app = express();
 
-const isAuthenticated = (req, res, next) => {
-    if (req.session.user) {
-        next();
-    } else {
-        res.redirect('/login');
-    }
-};
 
 // Route: Login Page
 router.get('/login', (req, res) => {
@@ -29,15 +22,6 @@ router.post('/login', (req, res) => {
             error: "Invalid Credentials. Please try again."
         });
     }
-});
-
-// Protected Route: Dashboard
-app.get('/dashboard', isAuthenticated, (req, res) => {
-    res.render('dashboard', {
-        user: req.session.user, 
-        layout: false, // No layout
-        title: "Dashboard" // Page Title
-    });
 });
 
 

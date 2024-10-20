@@ -6,7 +6,7 @@ const sequelize = require('./db');
 const homeRoutes = require('./routes/home');
 const suburbRoutes = require('./routes/suburb');
 const authRoutes = require('./routes/auth');
-const dashboardRoutes = require('./routes/dashboard');
+const dashboardRoutes = require('./routes/dash');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
