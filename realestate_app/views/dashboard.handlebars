@@ -29,6 +29,7 @@
       <h2>Maintain your Properties {{user}}! </h2>
 
       <table id="customers">
+        <thead>
         <tr>
           <th>Id</th>
           <th>Address</th>
@@ -37,7 +38,25 @@
           <th>Image Name</th>
           <th>Actions</th>
         </tr>
-        <tr>
+        </thead>
+        <tbody>
+          {{#each properties}}
+          <tr>
+            <td>{{id}}</td>
+            <td>{{address}}</td>
+            <td>{{listprice}}</td>
+            <td>{{suburb}}</td>
+            <td>{{imageName}}</td>
+            <td>
+              <button class="view-btn" title="View"><i class="fa fa-eye"></i></button>
+              <button class="edit-btn" title="Edit"><i class="fa fa-pencil"></i></button>
+              <button class="delete-btn" title="Delete"><i class="fa fa-trash"></i></button>
+            </td>
+          </tr>
+          {{/each}}
+        </tbody>
+
+        {{!-- <tr>
           <!--Insert ID Data here !-->
           <td>ID DATA</td>
           <td></td> <!-- Placeholder !-->
@@ -117,7 +136,7 @@
           <td></td> <!-- Placeholder !-->
           <td></td> <!-- Placeholder !-->
           <td></td> <!-- Placeholder !-->
-        </tr>
+        </tr> --}}
 
       </table>
     </div>

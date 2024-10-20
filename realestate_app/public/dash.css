@@ -142,3 +142,39 @@ footer {
     color: white;
     text-align: center;
   }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+  }
+  
+  thead th {
+    background-color: #6a0dad;
+    color: white;
+  }
+  
+  button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    margin: 0 5px;
+  }
+  
+  .view-btn i {
+    color: #4caf50;
+  }
+  
+  .edit-btn i {
+    color: #2196f3;
+  }
+  
+  .delete-btn i {
+    color: #f44336;
+  }
+  
