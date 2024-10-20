@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Property = require('../models/property');
+const { Sequelize, DataTypes } = require('sequelize');
 
 // Route: Home Page
 router.get("/", async (req, res) => {
