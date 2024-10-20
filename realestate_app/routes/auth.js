@@ -2,6 +2,8 @@ const express = require("express");
 const router = express.Router();
 const app = express();
 const sequelize = require('../db');
+const User = require('../models/user');
+const { title } = require("process");
 
 
 // Route: Login Page
@@ -10,10 +12,12 @@ router.get('/login', (req, res) => {
 });
 
 // POST Route: Login
-router.post('/login', (req, res) => {
+router.post('/login', async (req, res) => {
+    try {
     const { username, password } = req.body;
+    const user = await User.findOne({ where: { username }});
 
-    if (username === 'admin' && password === 'password') {
+    if (user && await user.validPassword(password)) {
         req.session.user = username;
         res.redirect('/dashboard');
     } else {
@@ -22,6 +26,25 @@ router.post('/login', (req, res) => {
             title: "Login",
             error: "Invalid Credentials. Please try again."
         });
+    }
+} catch (error) {
+    console.log(error);
+}
+});
+
+// Registration Route (GET)
+router.get("/register", (req,res) => {
+    res.render("register", { layout: false, title: "Register"});
+});
+
+// Registration Route (POST)
+router.post('/register', async (req,res) => {
+    try {
+        const { username, password } = req.body;
+        await User.create({ username, password});
+        res.redirect('/login');
+    } catch (error) {
+        res.render('register', { layout: false, title: "Register", error: error.message});
     }
 });
 
