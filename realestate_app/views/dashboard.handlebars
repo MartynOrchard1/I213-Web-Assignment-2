@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="/dash.css" />
   <title>Dashboard</title>
+  <script src="https://kit.fontawesome.com/334a2469db.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -36,7 +37,7 @@
           <th>List Price</th>
           <th>Suburb</th>
           <th>Image Name</th>
-          <th>Actions</th>
+          <th colspan="3">Actions</th>
         </tr>
         </thead>
         <tbody>
@@ -44,12 +45,16 @@
           <tr>
             <td>{{id}}</td>
             <td>{{address}}</td>
-            <td>${{list_price}}</td>
+            <td class="list_price">${{list_price}}</td>
             <td>{{suburb}}</td>
             <td>{{image_name}}</td>
             <td>
-              <button class="view-btn" title="View"><i class="fa fa-eye"></i></button>
+              <button class="view-btn" title="View"><i class="fa-solid fa-eye"></i></button>
+            </td>
+            <td>
               <button class="edit-btn" title="Edit"><i class="fa fa-pencil"></i></button>
+            </td>
+            <td>
               <button class="delete-btn" title="Delete"><i class="fa fa-trash"></i></button>
             </td>
           </tr>

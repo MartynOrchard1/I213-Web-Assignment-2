@@ -177,4 +177,7 @@ footer {
   .delete-btn i {
     color: #f44336;
   }
-  
+
+  .list_price {
+    text-align: center;
+}
