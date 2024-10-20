@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Property = require('../models/property');
 const { Sequelize, DataTypes } = require('sequelize');
+const sequelize = require('../db');
 
 // Route: Suburb Filter
 router.get("/filter/:suburb", async (req, res) => {

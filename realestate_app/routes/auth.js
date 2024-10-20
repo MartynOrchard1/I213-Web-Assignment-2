@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const app = express();
+const sequelize = require('../db');
 
 
 // Route: Login Page
