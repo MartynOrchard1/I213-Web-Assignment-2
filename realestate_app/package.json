@@ -10,11 +10,15 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@flaticon/flaticon-uicons": "^3.3.1",
     "@handlebars/allow-prototype-access": "^1.0.5",
-    "express": "^4.19.2",
+    "express": "^4.21.1",
     "express-handlebars": "^8.0.1",
+    "express-session": "^1.18.1",
     "mysql": "^2.18.1",
     "mysql2": "^3.11.0",
+    "node": "^22.10.0",
+    "sequelize": "^6.37.4",
     "tailwindcss": "^3.4.10"
   }
 }
