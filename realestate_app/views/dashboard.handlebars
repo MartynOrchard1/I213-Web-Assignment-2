@@ -6,6 +6,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="/dash.css" />
   <title>Dashboard</title>
+  <style>
+      #customers {
+        font-family: Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      #customers td, #customers th {
+        border: 1px solid #ddd;
+        padding: 8px;
+      }
+
+      #customers tr:nth-child(even){background-color: #f2f2f2;}
+
+      #customers tr:hover {background-color: #ddd;}
+
+      #customers th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #04AA6D;
+        color: white;
+      }
+</style>
 </head>
 
 <body>
@@ -26,13 +50,66 @@
 
   <main class="main-content">
     <div class="welcome-card">
-      <h2>Welcome to your Dashboard, Admin!</h2>
-      <p>Manage your properties and account</p>
-      <ul>
-        <li><a href="./properties.handlebars">View your properties</a></li>
-        <li><a href="#">Manage your account</a></li>
-        <li><a href="#">Update your settings</a></li>
-      </ul>
+      <h2>Maintain your properties {{user}}! </h2>
+<table id="customers">
+  <tr>
+    <th>ID</th>
+    <th>Address</th>
+    <th>List Price</th>
+    <th>Suburb</th>
+    <th>Image Name</th>
+    <th>Actions</th>
+  </tr>
+  <tr>
+    <!--Insert ID Data here !-->
+    <td>ID DATA</td>
+    <td></td> <!-- Placeholder !-->
+    <td></td> <!-- Placeholder !-->
+    <td></td> <!-- Placeholder !-->
+    <td></td> <!-- Placeholder !-->
+    <td></td> <!-- Placeholder !-->
+  </tr>
+  <tr>
+    <td>Address Data</td>
+    <td></td> <!-- Placeholder !-->
+    <td></td> <!-- Placeholder !-->
+    <td></td> <!-- Placeholder !-->
+    <td></td> <!-- Placeholder !-->
+    <td></td> <!-- Placeholder !-->
+  </tr>
+  <tr>
+    <td>List Price DATA</td>
+    <td></td> <!-- Placeholder !-->
+    <td></td> <!-- Placeholder !-->
+    <td></td> <!-- Placeholder !-->
+    <td></td> <!-- Placeholder !-->
+    <td></td> <!-- Placeholder !-->
+  </tr>
+  <tr>
+    <td>Suburb DATA</td>
+    <td></td> <!-- Placeholder !-->
+    <td></td> <!-- Placeholder !-->
+    <td></td> <!-- Placeholder !-->
+    <td></td> <!-- Placeholder !-->
+    <td></td> <!-- Placeholder !-->
+  </tr>
+  <tr>
+    <td>Image Name DATA</td>
+    <td></td> <!-- Placeholder !-->
+    <td></td> <!-- Placeholder !-->
+    <td></td> <!-- Placeholder !-->
+    <td></td> <!-- Placeholder !-->
+    <td></td> <!-- Placeholder !-->
+  </tr>
+  <tr>
+    <td>Actions DATA</td>
+    <td></td> <!-- Placeholder !-->
+    <td></td> <!-- Placeholder !-->
+    <td></td> <!-- Placeholder !-->
+    <td></td> <!-- Placeholder !-->
+    <td></td> <!-- Placeholder !-->
+  </tr>
+</table>
     </div>
   </main>
 
