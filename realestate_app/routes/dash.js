@@ -6,7 +6,12 @@ const Property = require('../models/property');
 router.get('/dashboard', async (req, res) => {
     if (req.session.user) {
         try {
-            const properties = await Property.findAll();
+            const properties = await Property.findAll({
+                where: {
+                    id: [6882, 6881, 6880, 6879, 6878, 6877, 6876, 6875, 6874, 6873] // Array of id's to pull from DB
+                },
+                order: [['id', 'DESC']] // Sort in descending order | Change 'DESC' to 'ASC' if you wish it to be ascending order
+            });
             res.render('dashboard', {
                 user: req.session.user,
                 properties: properties.map(p => p.toJSON()), // Ensure properties are serialized for Handlebars
