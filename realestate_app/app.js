@@ -7,6 +7,7 @@ const homeRoutes = require('./routes/home');
 const suburbRoutes = require('./routes/suburb');
 const authRoutes = require('./routes/auth');
 const dashboardRoutes = require('./routes/dash');
+const addProp = require('./routes/create_prop');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -35,6 +36,7 @@ app.use('/', homeRoutes);
 app.use('/', suburbRoutes);
 app.use('/', authRoutes);
 app.use('/', dashboardRoutes);
+app.use('/', addProp);
 
 // Error-handling middleware
 app.use((err, res) => {
