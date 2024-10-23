@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Property = require('../models/Property');  // Import the Sequelize model
+const { error } = require('console');
 
 // GET route to render the add property form
 router.get('/create', (req, res) => {
@@ -23,9 +24,12 @@ router.post('/properties/add', async (req, res) => {
 
     res.redirect('/dashboard');  // Redirect to dashboard after adding the property
   } catch (err) {
-    console.error('Error adding property:', err);
-    res.status(500).send('Failed to add property');
+    console.error('Error adding property:',`${req.body, req.file, Property}`, err);
+    res.status(500).send(`${req.body, req.file, Property, err} asdasdasd`);
+    console.log(req.body, req.file, Property,)
   }
 });
+
+// TODO: FIX FILE UPLOAD
 
 module.exports = router;
