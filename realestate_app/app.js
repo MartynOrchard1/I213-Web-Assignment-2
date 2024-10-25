@@ -17,6 +17,7 @@ app.engine("handlebars", engine({ partialsDir: path.join(__dirname, "views/parti
 app.set("view engine", "handlebars");
 app.set("views", path.join(__dirname, "views"));
 
+
 // Static files
 app.use(express.static(path.join(__dirname, "public")));
 

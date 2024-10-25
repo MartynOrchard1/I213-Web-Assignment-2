@@ -4,9 +4,9 @@ const Property = require('../models/property');
 const { error } = require('console');
 const multer = require('multer');
 
-// GET route: add_prop.handlebars
+// GET route: create.handlebars
 router.get('/create', (req, res) => {
-  res.render('add_prop');  // Render the add_prop.handlebars file
+  res.render('properties/create');  // Render the create.handlebars file
 });
 
 // POST route: Multer
