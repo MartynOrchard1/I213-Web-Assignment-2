@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Property = require('../models/Property');  // Import the Sequelize model
+const Property = require('../models/property');  // Import the Sequelize model
 const { error } = require('console');
 
 // GET route to render the add property form
