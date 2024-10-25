@@ -37,8 +37,11 @@ router.post('/properties/add', upload.single('image'), async (req, res) => {
 
     res.redirect('/dashboard');  // Redirect after adding the property
   } catch (err) {
+    // Debug and error messages
     console.error('Error adding property:', err);
     res.status(500).send(`Error adding property: ${err.message}`);
   }
 });
+
+// Export
 module.exports = router;
