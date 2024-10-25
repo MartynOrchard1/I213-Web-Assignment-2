@@ -1,9 +1,15 @@
 const express = require('express');
 const router = express.Router();
-const Property = require('../models/property');
+const Property = require('../models/property');  // Import the Sequelize model
+const { error } = require('console');
 const multer = require('multer');
 
-// Configure multer for file uploads
+// GET route to render the add property form
+router.get('/create', (req, res) => {
+  res.render('add_prop');  // Render the add_prop.handlebars file
+});
+
+// POST route to handle form submission using Sequelize
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, 'uploads/');  // Specify the uploads directory
@@ -26,7 +32,7 @@ router.post('/properties/add', upload.single('image'), async (req, res) => {
       address,
       list_price,
       suburb,
-      image_name: image ? image.filename : null  // Save the filename if an image is uploaded
+      image_name: image ? image.originalname : null  // Save the filename if an image is uploaded
     });
 
     res.redirect('/dashboard');  // Redirect after adding the property
@@ -35,5 +41,4 @@ router.post('/properties/add', upload.single('image'), async (req, res) => {
     res.status(500).send(`Error adding property: ${err.message}`);
   }
 });
-
 module.exports = router;
