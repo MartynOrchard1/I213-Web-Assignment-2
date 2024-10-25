@@ -4,7 +4,7 @@ const Property = require('../models/property');
 const { error } = require('console');
 const multer = require('multer');
 
-// GET route to render the add property form
+// GET route: add_prop.handlebars
 router.get('/create', (req, res) => {
   res.render('add_prop');  // Render the add_prop.handlebars file
 });
