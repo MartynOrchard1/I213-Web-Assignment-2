@@ -12,6 +12,7 @@
   <main class="main-content">
     <div class="card">
       <h2>Add New Property</h2>
+      
       <form action="/properties/add" method="POST" enctype="multipart/form-data">
         <div class="form-group">
           <label for="address">Address</label>
@@ -20,7 +21,7 @@
         
         <div class="form-group">
           <label for="list_price">List Price</label>
-          <input type="number" id="list_price" name="list_price" required>
+          <input type="number" id="list_price" name="list_price" step="1000" min="1000" required>
         </div>
 
         <div class="form-group">
