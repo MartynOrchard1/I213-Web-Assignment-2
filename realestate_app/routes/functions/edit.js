@@ -9,16 +9,18 @@ const upload = multer({ dest: 'uploads/' });  // Adjust the upload path as neces
 // GET route: Render the edit form for a property by ID
 router.get('/edit/:id', async (req, res) => {
   try {
-    const property = await Property.findByPk(req.params.id); // Fetch the property by ID
+    const property = await Property.findByPk(req.params.id);
     if (!property) {
       return res.status(404).send('Property not found');
     }
-    res.render('properties/edit', { property });  // Pass the property data to edit.handlebars
+    res.render('properties/edit', { property: property.get({ plain: true }) });
   } catch (err) {
     console.error('Error fetching property:', err);
     res.status(500).send('Internal Server Error');
   }
 });
+
+
 
 // POST route: Update the property with edited details
 router.post('/edit/:id', upload.single('image'), async (req, res) => {

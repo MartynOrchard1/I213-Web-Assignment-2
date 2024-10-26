@@ -9,6 +9,7 @@ const authRoutes = require('./routes/auth');
 const dashboardRoutes = require('./routes/dash');
 const addProp = require('./routes/functions/create');
 const editProp = require('./routes/functions/edit');
+const delProp = require('./routes/functions/delete');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -38,8 +39,9 @@ app.use('/', homeRoutes);
 app.use('/', suburbRoutes);
 app.use('/', authRoutes);
 app.use('/', dashboardRoutes);
-app.use('/', addProp);
-app.use('/', editProp);
+app.use('', addProp);
+app.use('/properties', editProp);
+app.use('/properties', delProp);
 
 // Error-handling middleware
 app.use((err, res) => {
