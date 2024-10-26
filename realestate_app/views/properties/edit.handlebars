@@ -10,6 +10,7 @@
     {{!-- NEEDS STYLE FOR FORM --}}
 
   <form action="/properties/edit/{{property.id}}" method="post" enctype="multipart/form-data" class="edit-form">
+  
     <h1>Edit Property</h1>
     <label for="address" class="address_label">Address:</label>
     <input type="text" id="address" name="address" value="{{property.address}}" required class="address_input">
