@@ -41,7 +41,7 @@ app.use('/', authRoutes);
 app.use('/', dashboardRoutes);
 app.use('', addProp);
 app.use('/properties', editProp);
-app.use('/properties', delProp);
+app.use('/properties/delete', delProp);
 
 // Error-handling middleware
 app.use((err, res) => {
