@@ -43,7 +43,7 @@ router.post('/edit/:id', upload.single('image'), async (req, res) => {
 
     // Only update the image if a new file was uploaded
     if (req.file) {
-      updatedData.image_name = req.file.filename;
+      updatedData.image_name = req.file.originalname;
     }
 
     await Property.update(updatedData, {
