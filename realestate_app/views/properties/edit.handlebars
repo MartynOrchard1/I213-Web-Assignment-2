@@ -7,22 +7,24 @@
   <title>Edit Property</title>
 </head>
 <body>
-  <h1>Edit Property</h1>
-  <form action="/properties/edit/{{property.id}}" method="post" enctype="multipart/form-data">
-    <label for="address">Address:</label>
-    <input type="text" id="address" name="address" value="{{property.address}}" required>
+    {{!-- NEEDS STYLE FOR FORM --}}
 
-    <label for="suburb">Suburb:</label>
-    <input type="text" id="suburb" name="suburb" value="{{property.suburb}}" required>
+  <form action="/properties/edit/{{property.id}}" method="post" enctype="multipart/form-data" class="edit-form">
+    <h1>Edit Property</h1>
+    <label for="address" class="address_label">Address:</label>
+    <input type="text" id="address" name="address" value="{{property.address}}" required class="address_input">
 
-    <label for="list_price">List Price:</label>
-    <input type="number" id="list_price" name="list_price" value="{{property.list_price}}" step="1000" min="1000" required>
+    <label for="suburb" class="suburb_label">Suburb:</label>
+    <input type="text" id="suburb" name="suburb" value="{{property.suburb}}" required class="suburb_input">
+
+    <label for="list_price" class="lp_label">List Price:</label>
+    <input type="number" id="list_price" name="list_price" value="{{property.list_price}}" step="1000" min="1000" required class="lp_input">
 
     <p>Current Image: {{property.image_name}}</p>
-    <label for="image">Upload New Image (optional):</label>
-    <input type="file" id="image" name="image">
+    <label for="image" class="image_label">Upload New Image (optional):</label>
+    <input type="file" id="image" name="image" class="image_input">
 
-    <button type="submit">Update Property</button>
+    <button type="submit" class="primary-btn">Update Property</button>
   </form>
 </body>
 </html>
