@@ -32,9 +32,14 @@ router.post('/login', async (req, res) => {
 }
 });
 
-// Registration Route (GET)
-router.get("/register", (req,res) => {
-    res.render("register", { layout: false, title: "Register"});
+// Registration Route (GET) !! PROTECTED !!
+router.get("/register", async (req,res) => {
+    if (req.session.user) {
+        res.render("register", { layout: false, title: "Register"});
+    }
+    else {
+        res.redirect('/login');
+    }
 });
 
 // Registration Route (POST)
