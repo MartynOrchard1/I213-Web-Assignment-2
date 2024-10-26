@@ -1,22 +1,31 @@
 const express = require('express');
 const router = express.Router();
 const Property = require('../../models/property');
+const { Sequelize } = require('sequelize');
 const multer = require('multer');
 
 // Set up multer for file uploads (optional image field)
 const upload = multer({ dest: 'uploads/' });  // Adjust the upload path as necessary
 
 // GET route: Render the edit form for a property by ID
-router.get('/edit/:id', async (req, res) => {
+router.get("/edit/:id", async (req, res) => {
   try {
-    const property = await Property.findByPk(req.params.id);
-    if (!property) {
-      return res.status(404).send('Property not found');
-    }
-    res.render('properties/edit', { property: property.get({ plain: true }) });
-  } catch (err) {
-    console.error('Error fetching property:', err);
-    res.status(500).send('Internal Server Error');
+      const property = await Property.findByPk(req.params.id);
+      if (!property) {
+          return res.status(404).send("Property not found");
+      }
+      const plainProperty = property.get({ plain: true });
+      plainProperty.image_url = `/images/houses/${plainProperty.image_name}`;
+
+      // Update the render call to include the properties directory
+      res.render("properties/edit", {
+          layout: "main",
+          title: "Edit Property",
+          property: plainProperty
+      });
+  } catch (error) {
+      console.error('Error fetching property:', error);
+      res.status(500).send('An error occurred while fetching the property');
   }
 });
 
