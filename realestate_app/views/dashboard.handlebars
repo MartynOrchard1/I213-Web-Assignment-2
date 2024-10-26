@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="/dash.css" />
   <title>Dashboard</title>
   <script src="https://kit.fontawesome.com/dbd1dafe10.js" crossorigin="anonymous"></script>
-  <script src="../delete-btn.js"></script>
+  <script src="../delete-btn.js" defer></script>
 </head>
 
 <body>
@@ -60,8 +60,7 @@
                     class="fa fa-pencil"></i></button></a>
             </td>
             <td>
-              <button class="delete-btn" title="Delete"><i class="fa fa-trash" onclick="delete-btn.js"></i></button>
-            </td>
+              <button class="delete-btn" title="Delete"><i class="fa fa-trash"></i></button>            </td>
           </tr>
           {{/each}}
         </tbody>
