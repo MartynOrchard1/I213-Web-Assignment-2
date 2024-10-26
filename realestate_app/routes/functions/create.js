@@ -6,7 +6,11 @@ const multer = require('multer');
 
 // GET route: create.handlebars
 router.get('/create', (req, res) => {
+  if (req.session.user) {
   res.render('properties/create');  // Render the create.handlebars file
+  } else {
+    res.redirect('/login');
+  }
 });
 
 // POST route: Multer

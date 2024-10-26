@@ -7,29 +7,31 @@ const multer = require('multer');
 // Set up multer for file uploads (optional image field)
 const upload = multer({ dest: 'uploads/' });  // Adjust the upload path as necessary
 
-// GET route: Render the edit form for a property by ID
+// GET route: Render the edit form for a property by ID !! PROTECTED !!
 router.get("/edit/:id", async (req, res) => {
-  try {
-      const property = await Property.findByPk(req.params.id);
-      if (!property) {
-          return res.status(404).send("Property not found");
-      }
-      const plainProperty = property.get({ plain: true });
-      plainProperty.image_url = `/images/houses/${plainProperty.image_name}`;
+  if (req.session.user) {
+    try {
+        const property = await Property.findByPk(req.params.id);
+        if (!property) {
+            return res.status(404).send("Property not found");
+        }
+        const plainProperty = property.get({ plain: true });
+        plainProperty.image_url = `/images/houses/${plainProperty.image_name}`;
 
-      // Update the render call to include the properties directory
-      res.render("properties/edit", {
-          layout: "main",
-          title: "Edit Property",
-          property: plainProperty
-      });
-  } catch (error) {
-      console.error('Error fetching property:', error);
-      res.status(500).send('An error occurred while fetching the property');
+        // Update the render call to include the properties directory
+        res.render("properties/edit", {
+            layout: "main",
+            title: "Edit Property",
+            property: plainProperty
+        });
+    } catch (error) {
+        console.error('Error fetching property:', error);
+        res.status(500).send('An error occurred while fetching the property');
+    }
+  } else {
+    res.redirect('/login');
   }
-});
-
-
+  });
 
 // POST route: Update the property with edited details
 router.post('/edit/:id', upload.single('image'), async (req, res) => {
