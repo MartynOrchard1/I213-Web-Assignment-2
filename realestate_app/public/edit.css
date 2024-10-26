@@ -64,6 +64,7 @@
     .edit_form {
         width: 90%;
     }
+    
     .primary-btn {
         width: 100%;
     }
@@ -75,5 +76,16 @@
         padding: 10px; /* Adjust padding for very small screens */
     }
 
+    .address_input,
+    .suburb_input,
+    .lp_input,
+    .image_input {
+        font-size: 14px; /* Make input fields font-size smaller */
+        padding: 8px; /* Reduce padding on smaller screens */
+    }
 
+    .primary-btn {
+        padding: 10px; /* Maintain button padding */
+        font-size: 14px; /* Adjust font size for smaller screens */
+    }
 }
