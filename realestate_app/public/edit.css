@@ -58,3 +58,13 @@
 .edit_form p {
     margin: 0px 0px 10px 0px;
 }
+
+/* Responsive Styling */
+@media screen and (max-width: 768px) {
+    .edit_form {
+        width: 90%;
+    }
+    .primary-btn {
+        width: 100%;
+    }
+}
