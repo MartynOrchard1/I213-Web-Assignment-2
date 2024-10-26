@@ -68,3 +68,12 @@
         width: 100%;
     }
 }
+
+@media screen and (max-width: 480px) {
+    .edit_form {
+        width: 100%;
+        padding: 10px; /* Adjust padding for very small screens */
+    }
+
+
+}
