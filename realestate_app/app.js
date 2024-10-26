@@ -8,6 +8,7 @@ const suburbRoutes = require('./routes/suburb');
 const authRoutes = require('./routes/auth');
 const dashboardRoutes = require('./routes/dash');
 const addProp = require('./routes/functions/create');
+const editProp = require('./routes/functions/edit');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -38,6 +39,7 @@ app.use('/', suburbRoutes);
 app.use('/', authRoutes);
 app.use('/', dashboardRoutes);
 app.use('/', addProp);
+app.use('/', editProp);
 
 // Error-handling middleware
 app.use((err, res) => {
