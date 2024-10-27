@@ -1,48 +1,48 @@
 body {
-    /* Reset */
     margin: 0;
     padding: 0;
 }
 
 .property-card {
     background-color: white; 
-    border: 1px solid #ccc; 
+    border: 1px solid rgba(0, 0, 0, 0); 
     border-radius: 10px; 
     padding: 20px; 
-    max-width: 400px; /* Set max width */
-    margin: 20px auto; /* Centered */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    max-width: 800px; 
+    margin: 20px auto; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
 }
 
 .property-card img {
-    max-width: 100%; /* Image responsive */
-    border-radius: 8px; /* Rounded corners for image */
+    /* max-width: 100%;  */
+    width: 100%;
+    border-radius: 10px; 
 }
 
 .button-group {
-    display: flex; /* Use flexbox for button layout */
-    justify-content: space-between; /* Space between buttons */
-    margin-top: 15px; /* Margin above button group */
+    display: flex; 
+    justify-content: space-between; 
+    margin-top: 15px; 
 }
 
 .btn {
-    padding: 10px 15px; /* Padding for buttons */
-    border: none; /* Remove border */
-    border-radius: 5px; /* Rounded corners for buttons */
-    cursor: pointer; /* Pointer cursor */
+    padding: 10px;
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
 }
 
 .btn-primary {
-    background-color: #007bff; /* Primary button color */
-    color: white; /* Text color */
+    background-color: #007bff; 
+    color: white; 
 }
 
 .btn-danger {
-    background-color: #dc3545; /* Danger button color */
-    color: white; /* Text color */
+    background-color: #dc3545; 
+    color: white; 
 }
 
 .btn-secondary {
-    background-color: #6c757d; /* Secondary button color */
-    color: white; /* Text color */
+    background-color: #6c757d; 
+    color: white; 
 }
