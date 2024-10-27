@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Property = require('../models/property'); 
 const { Op } = require('sequelize');
+const { deleteScript } = require('./functions/delete');
 
 // Protected Route: Dashboard
 router.get('/dashboard', async (req, res) => {
@@ -22,7 +23,8 @@ router.get('/dashboard', async (req, res) => {
                 user: req.session.user,
                 properties: properties.map(p => p.toJSON()), // Ensure properties are serialized for Handlebars
                 layout: false,
-                title: 'Dashboard'
+                title: 'Dashboard',
+                deleteScript: deleteScript
             });
         } catch (error) {
             console.error('Error fetching properties:', error);
@@ -32,5 +34,7 @@ router.get('/dashboard', async (req, res) => {
         res.redirect('/login');
     }
 });
+
+
 
 module.exports = router;
