@@ -6,6 +6,7 @@ body {
 p {
     margin-top: 5px;
     margin-bottom: 5px;
+    font-size: 20px;
 }
 
 .property-card {
@@ -13,15 +14,18 @@ p {
     border: 1px solid rgba(0, 0, 0, 0); 
     border-radius: 10px; 
     padding: 20px; 
-    max-width: 800px; 
-    min-height: 500px; /* Increased minimum height for the card */
+    width: 700px;
+    min-height: 800px; 
     margin: 20px auto; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .property-card img {
     width: 100%;
-    height: auto; /* Maintain aspect ratio */
+    height: auto; 
     border-radius: 10px; 
 }
 
@@ -29,32 +33,37 @@ p {
     display: flex; 
     justify-content: space-between; 
     margin-top: 15px; 
+    margin-left: 5px;
 }
 
-.btn {
-    height: 40px;
-    padding: 10px;
+.edit-prop,
+.delete-btn,
+.dash-link {
+    padding: 20px;
+    width: 180px;
     border: none; 
     border-radius: 5px; 
+    margin-right: 10px; /* Space between buttons */
+}
+
+.edit-prop {
+    background-color: #3383FB; 
+    color: white; 
+}
+
+.edit-prop:hover,
+.delete-btn:hover,
+.dash-link:hover {
+    opacity: 0.8;
     cursor: pointer; 
-    margin-right: 10px; /* Add spacing between buttons */
 }
 
-.btn a {
-    text-decoration: none;
-}
-
-.btn-primary {
-    background-color: #007bff; 
+.delete-btn {
+    background-color: #FF1800; 
     color: white; 
 }
 
-.btn-danger {
-    background-color: #dc3545; 
-    color: white; 
-}
-
-.btn-secondary {
-    background-color: #6c757d; 
+.dash-link {
+    background-color: #006D00; 
     color: white; 
 }
