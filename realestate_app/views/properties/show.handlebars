@@ -9,7 +9,7 @@
 <body>
   <div class="property-card">
     <h1>Property Details</h1>
-    
+
     <p><strong>ID:</strong> {{property.id}}</p>
 
     <p><strong>Address:</strong> {{property.address}}</p>
@@ -23,11 +23,9 @@
     <img src="{{property.image_url}}" alt="Property Image" class="property-image">
     
     <div class="button-group">
-      <a href="/edit/{{property.id}}" class="btn btn-primary">Edit Property</a>
-      <form action="/properties/delete/{{property.id}}" method="POST" class="inline-form">
-        <button type="submit" class="btn btn-danger">Delete Property</button>
-      </form>
-      <a href="/dashboard" class="btn btn-secondary">Back to Properties</a>
+      <a href="/properties/edit/{{id}}"><button class="edit-prop">Edit Property</button></a>
+      <button class="delete-btn" title="Delete">Delete Property</button>
+      <button class="dash-link">Back to properties</button> <!-- Create Dashboard Link/route !-->
     </div>
   </div>
 </body>
