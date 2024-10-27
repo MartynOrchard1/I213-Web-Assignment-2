@@ -25,9 +25,9 @@
     <div class="button-group">
 
       <a href="/properties/edit/{{property.id}}"><button class="edit-prop">Edit Property</button></a>
-      
-      <button class="delete-btn" title="Delete">Delete Property</button>
-
+      <form action="/properties/delete/{{property.id}}" method="POST" style="display:inline;">
+        <button type="submit" class="delete-btn" title="Delete">Delete Property</button>
+      </form>
       <a href="/dashboard">
         <button class="dash-link">Back to properties</button> 
       </a>
