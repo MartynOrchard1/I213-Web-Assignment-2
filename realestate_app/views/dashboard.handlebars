@@ -51,15 +51,13 @@
             <td>{{suburb}}</td>
             <td>{{image_name}}</td>
             <td>
-              <a href="/properties/{{id}}/view"><button class="view-btn" title="View"><i
-                    class="fa-solid fa-eye"></i></button></a>
+             <a href="/view/{{id}}"><button class="view-btn" title="View"><i class="fa-solid fa-eye" alt="View"></i></button></a>
             </td>
             <td>
-              <a href="/properties/edit/{{id}}"><button class="edit-btn" title="Edit"><i
-                    class="fa fa-pencil"></i></button></a>
+              <a href="/properties/edit/{{id}}"><button class="edit-btn" title="Edit"><i class="fa fa-pencil" alt="Edit"></i></button></a>
             </td>
             <td>
-              <button class="delete-btn" title="Delete"><i class="fa fa-trash"></i></button>
+              <button class="delete-btn" title="Delete"><i class="fa fa-trash" alt="Delete"></i></button>
             </td>
           </tr>
           {{/each}}
