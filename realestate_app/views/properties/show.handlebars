@@ -23,9 +23,11 @@
     <img src="{{property.image_url}}" alt="Property Image" class="property-image">
     
     <div class="button-group">
-      <a href="/properties/edit/{{id}}"><button class="edit-prop">Edit Property</button></a>
+      <a href="/properties/edit/{{property.id}}"><button class="edit-prop">Edit Property</button></a>
       <button class="delete-btn" title="Delete">Delete Property</button>
-      <button class="dash-link">Back to properties</button> <!-- Create Dashboard Link/route !-->
+      <a href="/dashboard">
+        <button class="dash-link">Back to properties</button> 
+      </a>
     </div>
   </div>
 </body>
