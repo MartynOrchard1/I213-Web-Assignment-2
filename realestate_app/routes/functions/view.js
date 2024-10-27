@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Property = require('../../models/property');
 
-// GET route: Render the view for a property by ID
+// GET route: View Form For Property
 router.get("/view/:id", async (req, res) => {
     if (req.session.user) {
         try {
@@ -11,7 +11,7 @@ router.get("/view/:id", async (req, res) => {
                 return res.status(404).send("Property not found");
             }
             const plainProperty = property.get({ plain: true });
-            plainProperty.image_url = `/images/houses/${plainProperty.image_name}`; // Adjust as per your structure
+            plainProperty.image_url = `/images/houses/${plainProperty.image_name}`; 
 
             res.render("properties/show", {
                 layout: "main",

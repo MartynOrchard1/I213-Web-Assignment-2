@@ -7,7 +7,7 @@ const multer = require('multer');
 // Set up multer for file uploads (optional image field)
 const upload = multer({ dest: 'uploads/' });  // Adjust the upload path as necessary
 
-// GET route: Render the edit form for a property by ID !! PROTECTED !!
+// GET route: Edit Form !! PROTECTED !!
 router.get("/edit/:id", async (req, res) => {
   if (req.session.user) {
     try {
@@ -33,7 +33,7 @@ router.get("/edit/:id", async (req, res) => {
   }
   });
 
-// POST route: Update the property with edited details
+// POST route: Update Property
 router.post('/edit/:id', upload.single('image'), async (req, res) => {
   try {
     const { address, suburb, list_price } = req.body;
