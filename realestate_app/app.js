@@ -39,7 +39,7 @@ app.use('/', homeRoutes);
 app.use('/', suburbRoutes);
 app.use('/', authRoutes);
 app.use('/', dashboardRoutes);
-app.use('', addProp);
+app.use('/', addProp);
 app.use('/properties', editProp);
 app.use('/properties/delete', delProp);
 

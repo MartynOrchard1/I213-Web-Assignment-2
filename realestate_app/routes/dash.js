@@ -8,7 +8,7 @@ router.get('/dashboard', async (req, res) => {
         try {
             const properties = await Property.findAll({
                 where: {
-                    id: [6895, 6882, 6881, 6880, 6879, 6878, 6877, 6876, 6875, 6874, 6873] // Array of id's to pull from DB
+                    id: [6897, 6882, 6881, 6880, 6879, 6878, 6877, 6876, 6875, 6874, 6873] // Array of id's to pull from DB
                 },
                 order: [['id', 'DESC']] // Sort in descending order | Change 'DESC' to 'ASC' if you wish it to be ascending order
             });
