@@ -44,7 +44,7 @@ app.use('/properties', editProp);
 app.use('/properties/delete', delProp);
 
 // Error-handling middleware
-app.use((err, res) => {
+app.use((err, res ) => {
     console.error(err);
     res.status(500).send('Something went wrong!');
 });
