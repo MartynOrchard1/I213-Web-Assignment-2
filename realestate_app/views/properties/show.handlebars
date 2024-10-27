@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styles.css"> <!-- Link to your CSS file -->
+  <title>Property Details</title>
+</head>
+<body>
+  <div class="property-card">
+    <h1>Property Details</h1>
+    <p>ID: {{property.id}}</p>
+    <p>Address: {{property.address}}</p>
+    <p>Suburb: {{property.suburb}}</p>
+    <p>List Price: {{property.list_price}}</p>
+    <img src="{{property.image_url}}" alt="Property Image" class="property-image">
+    
+    <div class="button-group">
+      <a href="/edit/{{property.id}}" class="btn btn-primary">Edit Property</a>
+      <form action="/properties/delete/{{property.id}}" method="POST" class="inline-form">
+        <button type="submit" class="btn btn-danger">Delete Property</button>
+      </form>
+      <a href="/dashboard" class="btn btn-secondary">Back to Properties</a>
+    </div>
+  </div>
+</body>
+</html>
