@@ -51,13 +51,16 @@
             <td>{{suburb}}</td>
             <td>{{image_name}}</td>
             <td>
-             <a href="/view/{{id}}"><button class="view-btn" title="View"><i class="fa-solid fa-eye" alt="View"></i></button></a>
+              <a href="/view/{{id}}"><button class="view-btn" title="View"><i class="fa-solid fa-eye" alt="View"></i></button></a>
             </td>
             <td>
               <a href="/properties/edit/{{id}}"><button class="edit-btn" title="Edit"><i class="fa fa-pencil" alt="Edit"></i></button></a>
             </td>
             <td>
-              <button class="delete-btn" title="Delete"><i class="fa fa-trash" alt="Delete"></i></button>
+              <!-- Form for deleting the property -->
+              <form action="/properties/delete/{{id}}" method="POST" onsubmit="return confirm('Are you sure you want to delete this property?');" style="display: inline;">
+                <button type="submit" class="delete-btn" title="Delete"><i class="fa fa-trash" alt="Delete"></i></button>
+              </form>
             </td>
           </tr>
           {{/each}}
