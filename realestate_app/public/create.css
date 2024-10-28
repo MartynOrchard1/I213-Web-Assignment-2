@@ -16,11 +16,10 @@ body {
 /* Card styles */
 .card {
     background-color: white;         /* White background for the card */
-    border-radius: 8px;              /* Rounded corners */
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
     padding: 20px;                   /* Padding inside the card */
-    width: 800px;                    /* Fixed width for the card */
-    height: 800px;
+    width: 700px;                    /* Fixed width for the card */
+    height: auto;
     margin-bottom: 0;                /* Ensure there's no margin at the bottom of the card */
 }
 
@@ -39,6 +38,7 @@ label {
     font-weight: bold;               /* Bold labels */
     margin-bottom: 5px;              /* Space between label and input */
     display: block;                  /* Label as block element */
+    font-size: 28px;
 }
 
 input[type="text"],
