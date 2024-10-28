@@ -65,7 +65,7 @@ input[type="file"] {
     cursor: pointer;                  /* Pointer cursor on hover */
     font-size: 16px;                 /* Font size for button */
     display: block;                   /* Block display to take full width */
-    width: 100%;                      /* Full width button */
+    width: 30%;                      /* Full width button */
     margin-top: 10px;                /* Space above button */
 }
 
