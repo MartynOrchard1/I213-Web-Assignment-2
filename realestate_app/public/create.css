@@ -3,60 +3,67 @@ body {
     padding: 0;
 }
 
-/* Main content styles */
 .main-content {
-    display: flex;                  /* Flexbox layout */
-    justify-content: center;        /* Center horizontally */
-    align-items: flex-start;        /* Align items to the start vertically */
-    padding-top: 50px;             /* Add some top padding to push it down */
-    padding-bottom: 20px;          /* Add some bottom padding to prevent it from touching the footer */
-    background-color: #E0F7FA;     /* Light background color */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 50px;
+    padding-bottom: 20px;
+    background-color: #E0F7FA;
 }
 
-/* Card styles */
 .card {
-    background-color: white;         /* White background for the card */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
-    padding: 20px;                   /* Padding inside the card */
-    width: 700px;                    /* Fixed width for the card */
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 700px;
     height: auto;
-    margin-bottom: 0;                /* Ensure there's no margin at the bottom of the card */
+    margin-bottom: 0;
 }
 
-/* Title styles */
 .card h2 {
-    text-align: center;              /* Center the title */
-    margin-bottom: 20px;             /* Space below the title */
+    text-align: center;
+    margin-bottom: 20px;
 }
 
-/* Form styles */
 .form-group {
-    margin-bottom: 15px;             /* Space between form groups */
+    margin-bottom: 15px;
 }
 
 label {
-    font-weight: bold;               /* Bold labels */
-    margin-bottom: 5px;              /* Space between label and input */
-    display: block;                  /* Label as block element */
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
     font-size: 28px;
 }
 
 input[type="text"],
 input[type="number"],
 input[type="file"] {
-    width: 100%;                     /* Full width for inputs */
-    padding: 10px;                   /* Inner padding */
-    border: 1px solid #ccc;          /* Light border */
-    border-radius: 4px;              /* Rounded corners */
-    box-sizing: border-box;           /* Include padding in width */
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
 }
 
 input[type="file"] {
-    padding: 0;                      /* Reset padding for file input */
+    padding: 0;
 }
 
-/* Button styles */
 .btn-primary {
+<<<<<<< HEAD
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    display: block;
+    width: 30%;
+    margin-top: 10px;
+=======
     background-color: #007BFF;       /* Button background color */
     color: white;                     /* Button text color */
     padding: 10px 15px;              /* Padding for button */
@@ -65,10 +72,11 @@ input[type="file"] {
     cursor: pointer;                  /* Pointer cursor on hover */
     font-size: 16px;                 /* Font size for button */
     display: block;                   /* Block display to take full width */
-    width: 30%;                      /* Full width button */
+    width: 100%;                      /* Full width button */
     margin-top: 10px;                /* Space above button */
+>>>>>>> parent of 30eaf47 (Update create.css)
 }
 
 .btn-primary:hover {
-    background-color: #0056b3;       /* Darker blue on hover */
+    background-color: #0056b3;
 }

@@ -111,6 +111,24 @@ body {
     color: blue;
 }
 
+.header-container {
+  display: flex;
+  align-items: center; 
+  justify-content: space-between; 
+  margin-bottom: 20px; 
+}
+
+.create-link {
+  margin-left: 10px; 
+  text-decoration: none; 
+  font-weight: bold; 
+}
+
+.create-link:hover {
+  text-decoration: underline; 
+}
+
+
 /* Footer styles */
 footer {
     background-color: #99F6E4;
