@@ -43,7 +43,7 @@ app.use('/', dashboardRoutes);
 app.use('/', addProp); // Create Property
 app.use('/', viewProp); // View Property
 app.use('/properties', editProp); // Edit Property
-app.use('/properties/delete', delProp); // Delete Property
+app.use('/properties', delProp); // Delete Property
 
 // Error-handling middleware
 app.use((err, res ) => {

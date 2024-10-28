@@ -23,46 +23,16 @@
       <a href="/properties/edit/{{property.id}}">
         <button class="edit-prop">Edit Property</button>
       </a>
-      <button class="delete-btn" title="Delete">Delete Property</button>
+
+      <!-- Form for deleting the property -->
+      <form action="/properties/delete/{{property.id}}" method="POST" onsubmit="return confirm('Are you sure you want to delete this property?');">
+        <button type="submit" class="delete-btn" title="Delete">Delete Property</button>
+      </form>
+
       <a href="/dashboard">
         <button class="dash-link">Back to properties</button> 
       </a>
     </div>
   </div>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const deleteButton = document.querySelector('.delete-btn');
-
-      if (deleteButton) {
-        deleteButton.addEventListener('click', async (event) => {
-          event.preventDefault(); // Prevent default button behavior
-
-          const propertyId = {{property.id}}; // Get the property ID directly from Handlebars
-
-          if (confirm('Are you sure you want to delete this property?')) {
-            try {
-              console.log(`Attempting to delete property with ID: ${propertyId}`);
-              const response = await fetch(`/properties/delete/${propertyId}`, {
-                method: 'DELETE',
-              });
-
-              if (response.ok) {
-                alert('Property deleted successfully');
-                window.location.href = '/dashboard'; // Redirect to the dashboard after deletion
-              } else {
-                const errorMsg = await response.json(); // Ensure it's parsing JSON
-                console.error(`Failed to delete property: ${errorMsg.error}`);
-                alert(`Failed to delete property: ${errorMsg.error}`);
-              }
-            } catch (err) {
-              console.error('Error:', err);
-              alert('An error occurred while deleting the property');
-            }
-          }
-        });
-      }
-    });
-  </script>
 </body>
 </html>
