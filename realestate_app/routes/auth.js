@@ -32,7 +32,20 @@ router.post('/login', async (req, res) => {
 }
 });
 
-// Registration Route (GET) !! PROTECTED !!
+// Route: Logout
+router.get('/logout', (req, res) => {
+    req.session.destroy(err => {
+        if (err) { // If there's an error logging out do this...
+            console.error('Error Logging out: ', err);
+            return res.status(500).send('Could not log out');
+        }
+        // Clear Cookie
+        res.clearCookie('connect.sid');
+        res.redirect('/login');
+    })
+})
+
+// Route: Registration (GET) !! PROTECTED !!
 router.get("/register", async (req,res) => {
     if (req.session.user) {
         try {
@@ -51,7 +64,7 @@ router.get("/register", async (req,res) => {
     }
 });
 
-// Registration Route (POST)
+// Post Route: Registration
 router.post('/register', async (req,res) => {
     try {
         const { username, password } = req.body;
