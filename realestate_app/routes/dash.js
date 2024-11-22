@@ -21,7 +21,7 @@ router.get('/dashboard', async (req, res) => {
             
             res.render('dashboard', {
                 user: req.session.user,
-                properties: properties.map(p => p.toJSON()), // Ensure properties are serialized for Handlebars
+                properties: properties.map(p => p.toJSON()), // JSON Conversion
                 layout: false,
                 title: 'Dashboard',
                 deleteScript: deleteScript
