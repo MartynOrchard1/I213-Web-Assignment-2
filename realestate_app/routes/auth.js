@@ -35,7 +35,7 @@ router.post('/login', async (req, res) => {
 // Registration Route (GET) !! PROTECTED !!
 router.get("/register", async (req,res) => {
     if (req.session.user) {
-        res.render("register", { layout: false, title: "Register"});
+        res.render("register", { layout: false, title: "Register", error: "Not Authenticated" });
     }
     else {
         res.redirect('/login');
@@ -52,6 +52,5 @@ router.post('/register', async (req,res) => {
         res.render('register', { layout: false, title: "Register", error: error.message});
     }
 });
-
 
 module.exports = router;
