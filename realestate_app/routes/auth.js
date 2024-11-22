@@ -5,7 +5,6 @@ const sequelize = require('../db');
 const User = require('../models/user');
 const { title } = require("process");
 
-
 // Route: Login Page
 router.get('/login', (req, res) => {
     res.render('login', { layout: "main", title: "Login" });
@@ -35,7 +34,7 @@ router.post('/login', async (req, res) => {
 // Route: Logout
 router.get('/logout', (req, res) => {
     // Display which user has logged out in the console
-    const username = req.session?.user
+    const username = req.session.user
     if (username) {
         console.log(`${username} has logged out.`);
     } else {
