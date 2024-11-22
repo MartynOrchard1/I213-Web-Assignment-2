@@ -34,8 +34,8 @@ router.post('/login', async (req, res) => {
 
 // Route: Logout
 router.get('/logout', (req, res) => {
+    // Display which user has logged out in the console
     const username = req.session?.user
-
     if (username) {
         console.log(`${username} has logged out.`);
     } else {
