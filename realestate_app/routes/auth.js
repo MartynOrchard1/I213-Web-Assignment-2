@@ -41,7 +41,8 @@ router.get('/logout', (req, res) => {
     } else {
         console.log('User has logged out (Username not found)');
     }
-    
+
+    // Destroy Users Session so they can't paste routes into the url and gain access.
     req.session.destroy(err => {
         if (err) { // If there's an error logging out do this...
             console.error('Error Logging out: ', err);
