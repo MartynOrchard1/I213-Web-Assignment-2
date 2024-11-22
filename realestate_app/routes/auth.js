@@ -34,6 +34,13 @@ router.post('/login', async (req, res) => {
 
 // Route: Logout
 router.get('/logout', (req, res) => {
+    const username = req.session?.user
+
+    if (username) {
+        console.log(`${username} has logged out.`);
+    } else {
+        console.log('User has logged out (Username not found)');
+    }
     req.session.destroy(err => {
         if (err) { // If there's an error logging out do this...
             console.error('Error Logging out: ', err);
