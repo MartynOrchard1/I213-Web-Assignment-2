@@ -56,7 +56,7 @@ router.get("/register", async (req,res) => {
             });
         }
         catch (error) {
-            console.error(error);
+            console.log(error);
         }
     }
     else {
