@@ -52,7 +52,6 @@ input[type="file"] {
 }
 
 .btn-primary {
-<<<<<<< HEAD
     background-color: #007BFF;
     color: white;
     padding: 10px 15px;
@@ -63,18 +62,6 @@ input[type="file"] {
     display: block;
     width: 30%;
     margin-top: 10px;
-=======
-    background-color: #007BFF;       /* Button background color */
-    color: white;                     /* Button text color */
-    padding: 10px 15px;              /* Padding for button */
-    border: none;                     /* No border */
-    border-radius: 4px;              /* Rounded corners */
-    cursor: pointer;                  /* Pointer cursor on hover */
-    font-size: 16px;                 /* Font size for button */
-    display: block;                   /* Block display to take full width */
-    width: 100%;                      /* Full width button */
-    margin-top: 10px;                /* Space above button */
->>>>>>> parent of 30eaf47 (Update create.css)
 }
 
 .btn-primary:hover {

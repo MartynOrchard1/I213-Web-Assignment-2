@@ -59,7 +59,7 @@ router.get("/register", async (req,res) => {
         try {
             res.render("register", { 
                 layout: "main", 
-                title: "Register", 
+                title: "User Registration", 
                 error: "Not Authenticated" 
             });
         }
@@ -79,7 +79,7 @@ router.post('/register', async (req,res) => {
         await User.create({ username, password});
         res.redirect('/login');
     } catch (error) {
-        res.render('register', { layout: false, title: "Register", error: error.message});
+        res.render('register', { layout: false, title: "User Registration", error: error.message});
     }
 });
 
