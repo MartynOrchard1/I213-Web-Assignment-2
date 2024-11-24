@@ -1,21 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="/dash.css" />
   <title>Dashboard</title>
-</head>
+  <script src="https://kit.fontawesome.com/dbd1dafe10.js" crossorigin="anonymous"></script> <!-- Icon Pack !-->
+  <script>
 
+    // Confirm Deletion Script
+    if (typeof window !== 'undefined') {
+      window.confirmDeletion = function () {
+        const firstConf = confirm('Are you sure you want to delete this property? !! THIS IS NOT IRREVERSIBLE !!');
+        if (!firstConf) {
+          return false;
+        }
+
+        alert('Property Has Been Deleted');
+      };
+    }
+    
+  </script>
+</head>
 <body>
   <header>
     <nav class="nav-bar">
       <div class="links">
         <a href="/">Home</a>
         <a href="/dashboard">Dashboard</a>
+        <a href="/register">Register</a>
       </div>
-      <a href="/login" class="btn-primary">Logout</a>
+      <a href="/logout" class="btn-primary">Logout</a>
     </nav>
   </header>
 
@@ -26,13 +41,45 @@
 
   <main class="main-content">
     <div class="welcome-card">
-      <h2>Welcome to your Dashboard, Admin!</h2>
-      <p>Manage your properties and account</p>
-      <ul>
-        <li><a href="./properties.handlebars">View your properties</a></li>
-        <li><a href="#">Manage your account</a></li>
-        <li><a href="#">Update your settings</a></li>
-      </ul>
+      <div class="header-container">
+        <h2>Maintain your Properties {{user}}! </h2>
+        <a href="/create" class="create-link"><h3>+ Create New Property</h3></a>
+      </div>
+
+      <table id="customers">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Address</th>
+            <th>List Price</th>
+            <th>Suburb</th>
+            <th>Image Name</th>
+            <th colspan="3">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each properties}}
+          <tr>
+            <td>{{id}}</td>
+            <td>{{address}}</td>
+            <td class="list_price">${{list_price}}</td>
+            <td>{{suburb}}</td>
+            <td>{{image_name}}</td>
+            <td>
+              <a href="/view/{{id}}"><button class="view-btn" title="View"><i class="fa-solid fa-eye" alt="View"></i></button></a>
+            </td>
+            <td>
+              <a href="/properties/edit/{{id}}"><button class="edit-btn" title="Edit"><i class="fa fa-pencil" alt="Edit"></i></button></a>
+            </td>
+            <td>
+              <form action="/properties/delete/{{id}}" method="POST" onsubmit="return confirmDeletion();" style="display: inline;">
+                <button type="submit" class="delete-btn" title="Delete"><i class="fa fa-trash" alt="Delete"></i></button>
+              </form>
+            </td>
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>
     </div>
   </main>
 
@@ -40,5 +87,4 @@
     <p>© 2024 Real Estate Listings, All rights reserved.</p>
   </footer>
 </body>
-
 </html>

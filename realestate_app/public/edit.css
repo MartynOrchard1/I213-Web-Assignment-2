@@ -1,0 +1,91 @@
+.edit_form {
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 700px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.edit_form h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.current-image {
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.address_label,
+.suburb_label,
+.lp_label,
+.image_label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.address_input,
+.suburb_input,
+.lp_input,
+.image_input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #B2DFDB;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.primary-btn {
+    background-color: #3282FE;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 40%;
+    font-size: 16px;
+}
+
+.edit_form p {
+    margin: 0px 0px 10px 0px;
+}
+
+/* Responsive Styling */
+@media screen and (max-width: 768px) {
+    .edit_form {
+        width: 90%;
+    }
+
+    .primary-btn {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .edit_form {
+        width: 100%;
+        padding: 10px;
+        /* Adjust padding for very small screens */
+    }
+
+    .address_input,
+    .suburb_input,
+    .lp_input,
+    .image_input {
+        font-size: 14px;
+        /* Make input fields font-size smaller */
+        padding: 8px;
+        /* Reduce padding on smaller screens */
+    }
+
+    .primary-btn {
+        padding: 10px;
+        /* Maintain button padding */
+        font-size: 14px;
+        /* Adjust font size for smaller screens */
+    }
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration</title>
+    <link rel="stylesheet" href="/register.css">
+</head>
+
+<body>
+    
+    <main class="registration">
+        <div class="card">
+            {{#if success}}
+                <script>
+                    alert("User has been successfully created!");
+                </script>
+            {{/if}}
+            <h2>User Registration</h2>
+            <form class="form-reg" action="/register" method="POST">
+
+                <div class="form-group">
+                    <a class="link-dash" href="/dashboard">Back to Dashboard</a>
+                    <label for="username">Username:</label>
+                    <input class="inp-username" type="text" name="username" placeholder="Username..." required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input class="inp-password" type="password" name="password" placeholder="Password" required>
+                </div>
+
+                <button type="submit" class="btn-submit">Register</button>
+
+            </form>
+        </div>
+    </main>
+
+</body>
+
+</html>

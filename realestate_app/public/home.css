@@ -1,5 +1,6 @@
 /* CSS For home.css */
-html, body {
+html,
+body {
     margin: 0;
     padding: 0;
     display: flex;
@@ -93,7 +94,8 @@ aside ul {
     padding: 10px 15px;
     text-decoration: none;
     width: 100%;
-    line-height: 16.5px; /* Space inbetween each suburb */
+    line-height: 16.5px;
+    /* Space inbetween each suburb */
 }
 
 aside ul a {

@@ -7,6 +7,10 @@ const homeRoutes = require('./routes/home');
 const suburbRoutes = require('./routes/suburb');
 const authRoutes = require('./routes/auth');
 const dashboardRoutes = require('./routes/dash');
+const addProp = require('./routes/functions/create');
+const editProp = require('./routes/functions/edit');
+const delProp = require('./routes/functions/delete');
+const viewProp = require('./routes/functions/view');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -16,11 +20,12 @@ app.engine("handlebars", engine({ partialsDir: path.join(__dirname, "views/parti
 app.set("view engine", "handlebars");
 app.set("views", path.join(__dirname, "views"));
 
+
 // Static files
 app.use(express.static(path.join(__dirname, "public")));
 
 // JSON/URL Middleware
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Session middleware
@@ -35,9 +40,13 @@ app.use('/', homeRoutes);
 app.use('/', suburbRoutes);
 app.use('/', authRoutes);
 app.use('/', dashboardRoutes);
+app.use('/', addProp); // Create Property
+app.use('/', viewProp); // View Property
+app.use('/properties', editProp); // Edit Property
+app.use('/properties', delProp); // Delete Property
 
 // Error-handling middleware
-app.use((err, res) => {
+app.use((err, res ) => {
     console.error(err);
     res.status(500).send('Something went wrong!');
 });
