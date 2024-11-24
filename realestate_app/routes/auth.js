@@ -61,15 +61,17 @@ router.get("/register", async (req,res) => {
             res.render("register", { 
                 layout: "main", 
                 title: "User Registration", 
-                error: "Not Authenticated" 
+                success: req.query.success === "true"
             });
         }
         catch (error) {
             console.log(error);
+            res.render("register", {
+                layout: "main",
+                title: "User Registration",
+                error: "An unexpected error occured."
+            });
         }
-    }
-    else {
-        res.redirect('/login');
     }
 });
 
@@ -78,7 +80,8 @@ router.post('/register', async (req,res) => {
     try {
         const { username, password } = req.body;
         await User.create({ username, password});
-        res.redirect('/register');
+        console.log('User Successfully Created');
+        res.redirect('/register?success=true');
     } catch (error) {
         res.render('register', { layout: false, title: "User Registration", error: error.message});
     }

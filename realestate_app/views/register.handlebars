@@ -9,8 +9,14 @@
 </head>
 
 <body>
+    
     <main class="registration">
         <div class="card">
+            {{#if success}}
+                <script>
+                    alert("User has been successfully created!");
+                </script>
+            {{/if}}
             <h2>User Registration</h2>
             <form class="form-reg" action="/register" method="POST">
 
