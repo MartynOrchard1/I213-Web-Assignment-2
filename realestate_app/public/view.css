@@ -10,14 +10,14 @@ p {
 }
 
 .property-card {
-    background-color: white; 
-    border: 1px solid rgba(0, 0, 0, 0); 
-    border-radius: 10px; 
-    padding: 20px; 
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0);
+    border-radius: 10px;
+    padding: 20px;
     width: 700px;
-    min-height: 800px; 
-    margin: 20px auto; 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    min-height: 800px;
+    margin: 20px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -25,14 +25,14 @@ p {
 
 .property-card img {
     width: 100%;
-    height: auto; 
-    border-radius: 10px; 
+    height: auto;
+    border-radius: 10px;
 }
 
 .button-group {
-    display: flex; 
-    justify-content: space-between; 
-    margin-top: 15px; 
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
     margin-left: 5px;
 }
 
@@ -41,29 +41,30 @@ p {
 .dash-link {
     padding: 20px;
     width: 180px;
-    border: none; 
-    border-radius: 5px; 
-    margin-right: 10px; /* Space between buttons */
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+    /* Space between buttons */
 }
 
 .edit-prop {
-    background-color: #3383FB; 
-    color: white; 
+    background-color: #3383FB;
+    color: white;
 }
 
 .edit-prop:hover,
 .delete-btn:hover,
 .dash-link:hover {
     opacity: 0.8;
-    cursor: pointer; 
+    cursor: pointer;
 }
 
 .delete-btn {
-    background-color: #FF1800; 
-    color: white; 
+    background-color: #FF1800;
+    color: white;
 }
 
 .dash-link {
-    background-color: #006D00; 
-    color: white; 
+    background-color: #006D00;
+    color: white;
 }

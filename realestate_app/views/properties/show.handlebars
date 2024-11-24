@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/view.css"> 
+  <link rel="stylesheet" href="/view.css">
   <title>Property Details</title>
 </head>
+
 <body>
   <div class="property-card">
     <h1>Property Details</h1>
@@ -18,21 +20,23 @@
     <br>
 
     <img src="{{property.image_url}}" alt="Property Image" class="property-image">
-    
+
     <div class="button-group">
       <a href="/properties/edit/{{property.id}}">
         <button class="edit-prop">Edit Property</button>
       </a>
 
       <!-- Form for deleting the property -->
-      <form action="/properties/delete/{{property.id}}" method="POST" onsubmit="return confirm('Are you sure you want to delete this property?');">
+      <form action="/properties/delete/{{property.id}}" method="POST"
+        onsubmit="return confirm('Are you sure you want to delete this property?');">
         <button type="submit" class="delete-btn" title="Delete">Delete Property</button>
       </form>
 
       <a href="/dashboard">
-        <button class="dash-link">Back to properties</button> 
+        <button class="dash-link">Back to properties</button>
       </a>
     </div>
   </div>
 </body>
+
 </html>
