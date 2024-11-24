@@ -61,3 +61,16 @@ label {
 .btn-submit:hover {
     background-color: green;
 }
+
+.link-dash {
+    text-decoration: none;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: black;
+    font-size: 24px;
+}
+
+.link-dash:hover {
+    color: blue;
+    text-decoration: wavy;
+}

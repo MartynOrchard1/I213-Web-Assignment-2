@@ -15,6 +15,7 @@ router.get("/filter/:suburb", async (req, res) => {
         } else {
             properties = await Property.findAll({
                 where: { suburb: suburbName },
+                order: sequelize.random(),
                 limit: 21
             });
         }
