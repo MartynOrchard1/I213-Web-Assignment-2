@@ -3,3 +3,18 @@ body {
     padding: 0;
 }
 
+/* Form Card */
+.card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 50px;
+    padding-bottom: 20px;
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 700px;
+    height: auto;
+    margin-bottom: 0;
+}
+
