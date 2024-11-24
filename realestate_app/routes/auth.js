@@ -19,6 +19,7 @@ router.post('/login', async (req, res) => {
     if (user && await user.validPassword(password)) {
         req.session.user = username;
         res.redirect('/dashboard');
+        console.log(username + ' Has logged in');
     } else {
         res.render('login', {
             layout: "main",
