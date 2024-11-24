@@ -28,7 +28,7 @@
 
       <!-- Form for deleting the property -->
       <form action="/properties/delete/{{property.id}}" method="POST"
-        onsubmit="return confirm('Are you sure you want to delete this property?');">
+        onsubmit="return confirmDeletion();">
         <button type="submit" class="delete-btn" title="Delete">Delete Property</button>
       </form>
 

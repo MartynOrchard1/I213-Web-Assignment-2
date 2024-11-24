@@ -23,16 +23,5 @@ router.post('/delete/:id', async (req, res) => {
   }
 });
 
-// Confirm Deletion
-if (typeof window !== 'undefined') {
-    window.confirmDeletion = function () {
-        const firstConf = confirm('Are you sure you want to delete this property?');
-        if (!firstConf) {
-            return false;
-        }
-
-        alert("Property Has been deleted");
-    };
-}
 
 module.exports = router;
