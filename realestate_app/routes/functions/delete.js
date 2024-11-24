@@ -31,8 +31,7 @@ if (typeof window !== 'undefined') {
             return false;
         }
 
-        const secondConf = confirm('Property Has been deleted');
-        return secondConf;
+        alert("Property Has been deleted");
     };
 }
 

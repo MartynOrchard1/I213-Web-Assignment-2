@@ -1,14 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="/dash.css" />
   <title>Dashboard</title>
   <script src="https://kit.fontawesome.com/dbd1dafe10.js" crossorigin="anonymous"></script> <!-- Icon Pack !-->
-</head>
+  <script>
+    if (typeof window !== 'undefined') {
+      window.confirmDeletion = function () {
+        const firstConf = confirm('Are you sure you want to delete this property?');
+        if (!firstConf) {
+          return false;
+        }
 
+        const secondConf = confirm('Property Has been deleted');
+        return secondConf;
+      };
+    }
+  </script>
+</head>
 <body>
   <header>
     <nav class="nav-bar">
@@ -59,7 +70,7 @@
               <a href="/properties/edit/{{id}}"><button class="edit-btn" title="Edit"><i class="fa fa-pencil" alt="Edit"></i></button></a>
             </td>
             <td>
-              <form action="/properties/delete/{{id}}" method="POST" onsubmit="return confirm('Are you sure you want to delete this property?');" style="display: inline;">
+              <form action="/properties/delete/{{id}}" method="POST" onsubmit="return confirmDeletion();" style="display: inline;">
                 <button type="submit" class="delete-btn" title="Delete"><i class="fa fa-trash" alt="Delete"></i></button>
               </form>
             </td>
@@ -68,7 +79,6 @@
         </tbody>
       </table>
     </div>
-
   </main>
 
   <footer>
